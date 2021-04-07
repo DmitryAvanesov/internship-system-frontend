@@ -1,0 +1,8 @@
+{
+  "name": "internship-system-frontend",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "cad9d8f1"
+}
