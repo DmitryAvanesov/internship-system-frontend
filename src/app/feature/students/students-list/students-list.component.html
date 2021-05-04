@@ -5,6 +5,7 @@
   <ion-list
     class="students__list"
     *ngIf="!(studentsLoading$ | async); else loader"
+    lines="none"
   >
     <app-students-list-item
       *ngFor="let student of students$ | async"

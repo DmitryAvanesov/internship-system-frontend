@@ -13,7 +13,7 @@ export class StudentsApiService {
     return of(
       new Array(25)
         .fill({
-          userName: 'Рома Выгон',
+          userName: 'Иван Павлов',
         })
         .map((val, index) => ({
           ...val,
