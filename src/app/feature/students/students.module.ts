@@ -6,9 +6,16 @@ import { StudentsListComponent } from '@students/students-list/students-list.com
 import { StudentsListItemComponent } from '@students/students-list-item/students-list-item.component';
 import { EffectsModule } from '@ngrx/effects';
 import { StudentsEffects } from 'src/app/store/students/students.effects';
+import { StudentsPageComponent } from '@students/students-page/students-page.component';
+import { StudentsSearchComponent } from '@students/students-search/students-search.component';
 
 @NgModule({
-  declarations: [StudentsListComponent, StudentsListItemComponent],
+  declarations: [
+    StudentsPageComponent,
+    StudentsListComponent,
+    StudentsListItemComponent,
+    StudentsSearchComponent,
+  ],
   imports: [
     CommonModule,
     StudentsRouting,

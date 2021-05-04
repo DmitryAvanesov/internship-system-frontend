@@ -13,11 +13,8 @@ import {
 })
 export class StudentsListComponent implements OnInit {
   students$ = this.store.select(selectAllStudents);
-  studentsLoading$ = this.store.select(selectStudentsLoading);
 
   constructor(private store: Store) {}
 
-  ngOnInit() {
-    this.store.dispatch(loadStudents());
-  }
+  ngOnInit() {}
 }

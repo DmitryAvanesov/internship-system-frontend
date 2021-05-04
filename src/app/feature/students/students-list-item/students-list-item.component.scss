@@ -12,15 +12,30 @@
 
     .info {
       display: flex;
-      flex-direction: column;
 
       .user-name {
-        margin-bottom: 5px;
+        margin-right: 20px;
       }
 
       .specializations {
         .specialization {
-          margin-right: 5px;
+          margin-right: 10px;
+        }
+      }
+
+      @media screen and (max-width: 850px) {
+        & {
+          flex-direction: column;
+
+          .user-name {
+            margin-bottom: 5px;
+          }
+
+          .specializations {
+            .specialization {
+              margin-right: 5px;
+            }
+          }
         }
       }
     }
