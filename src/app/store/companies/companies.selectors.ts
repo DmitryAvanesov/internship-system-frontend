@@ -7,7 +7,7 @@ const selectCompanies = createFeatureSelector<AppState, CompaniesState>('compani
 
 export const {
   selectAll: selectAllCompanies
-} = companiesAdapter.getSelectors();
+} = companiesAdapter.getSelectors(selectCompanies);
 
 export const selectCompaniesLoading = createSelector(
   selectCompanies,
