@@ -4,5 +4,14 @@
       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDmXKGtyS5klcNlruWA5SEDx4gr0YckGnHkA&usqp=CAU"
     />
   </ion-avatar>
-  <ion-label>{{ student.userName }}</ion-label>
+  <ion-label class="label">
+    <div class="info">
+      <span class="user-name">{{ student.userName }}</span>
+      <div class="specializations">
+        <ion-badge class="specialization" color="primary">Frontend</ion-badge>
+        <ion-badge class="specialization" color="warning">Mobile</ion-badge>
+      </div>
+    </div>
+    <span>{{ student.score }}</span>
+  </ion-label>
 </ion-item>

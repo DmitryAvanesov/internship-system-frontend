@@ -18,6 +18,7 @@ export class StudentsApiService {
         .map((val, index) => ({
           ...val,
           id: index,
+          score: Math.round(Math.random() * 500) / 100,
         }))
     ).pipe(delay(1000));
   }

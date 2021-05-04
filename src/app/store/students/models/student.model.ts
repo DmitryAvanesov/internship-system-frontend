@@ -1,6 +1,7 @@
 export interface StudentModel {
   id: string;
   userName: string;
+  score: number;
   // normalizedUserName: string;
   // email: string;
   // normalizedEmail: string;
