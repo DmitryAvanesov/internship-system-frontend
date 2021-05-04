@@ -1,3 +1,8 @@
-<p>
-  companies-list works!
-</p>
+<div class="app-container companies">
+  <ng-template #loader>
+    <app-loader></app-loader>
+  </ng-template>
+  <div *ngIf="!(companiesLoading$ | async) else loader" class="companies__table">
+    Companies Table
+  </div>
+</div>
