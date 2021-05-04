@@ -1,3 +1,14 @@
-<p>
-  students-list works!
-</p>
+<div class="app-container students">
+  <ng-template #loader>
+    <app-loader></app-loader>
+  </ng-template>
+  <ion-list
+    class="students__list"
+    *ngIf="!(studentsLoading$ | async); else loader"
+  >
+    <app-students-list-item
+      *ngFor="let student of students$ | async"
+      [student]="student"
+    ></app-students-list-item>
+  </ion-list>
+</div>
