@@ -2,10 +2,7 @@
   <ng-template #loader>
     <app-loader></app-loader>
   </ng-template>
-  <div
-    *ngIf="!(studentsLoading$ | async); else loader"
-    class="companies__table"
-  >
+  <div *ngIf="!(studentsLoading$ | async); else loader">
     <app-students-search></app-students-search>
     <app-students-list></app-students-list>
   </div>

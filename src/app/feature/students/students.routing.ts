@@ -1,6 +1,6 @@
 import { RouterModule, Routes } from '@angular/router';
-import { StudentPageComponent } from '@students/student-page/student-page.component';
-import { StudentsPageComponent } from '@students/students-page/students-page.component';
+import { StudentPageComponent } from '@students/pages/student/student-page.component';
+import { StudentsPageComponent } from '@students/pages/students/students-page.component';
 
 const routes: Routes = [
   {
