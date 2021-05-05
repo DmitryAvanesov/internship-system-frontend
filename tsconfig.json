@@ -17,7 +17,8 @@
       "@shared/*": ["src/app/shared/*"],
       "@core/*": ["src/app/core/*"],
       "@companies/*": ["src/app/feature/companies/*"],
-      "@students/*": ["src/app/feature/students/*"]
+      "@students/*": ["src/app/feature/students/*"],
+      "@store/*": ["src/app/store/*"]
     }
   },
   "angularCompilerOptions": {
