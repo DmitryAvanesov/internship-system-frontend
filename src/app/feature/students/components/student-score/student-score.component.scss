@@ -1,0 +1,14 @@
+:host {
+  flex-grow: 1;
+}
+
+.student-score {
+  ion-row {
+    padding: 4px 12px;
+    border-radius: 3px;
+
+    &:hover {
+      background-color: #dce9ff;
+    }
+  }
+}

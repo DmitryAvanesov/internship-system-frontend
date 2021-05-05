@@ -1,0 +1,30 @@
+.student {
+  .student-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
+
+    .avatar {
+      margin-right: 16px;
+    }
+
+    .info {
+      .user-name {
+        margin: 0 0 5px;
+      }
+
+      .portfolio {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .student-content {
+    display: flex;
+    justify-content: space-between;
+
+    .student-chips {
+      margin-right: 10%;
+    }
+  }
+}

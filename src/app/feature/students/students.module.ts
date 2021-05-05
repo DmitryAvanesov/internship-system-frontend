@@ -9,6 +9,8 @@ import { StudentsPageComponent } from '@students/pages/students/students-page.co
 import { StudentPageComponent } from '@students/pages/student/student-page.component';
 import { StudentsSearchComponent } from '@students/components/students-search/students-search.component';
 import { StudentsListComponent } from '@students/components/students-list/students-list.component';
+import { StudentChipsComponent } from '@students/components/student-chips/student-chips.component';
+import { StudentScoreComponent } from '@students/components/student-score/student-score.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { StudentsListComponent } from '@students/components/students-list/studen
     StudentsListItemComponent,
     StudentsSearchComponent,
     StudentPageComponent,
+    StudentChipsComponent,
+    StudentScoreComponent,
   ],
   imports: [
     CommonModule,

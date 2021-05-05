@@ -3,6 +3,23 @@
     <app-loader></app-loader>
   </ng-template>
   <div *ngIf="student$ | async; else loader">
-    {{ (student$ | async).id }}
+    <div class="student-header">
+      <ion-avatar class="avatar" slot="start">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDmXKGtyS5klcNlruWA5SEDx4gr0YckGnHkA&usqp=CAU"
+        />
+      </ion-avatar>
+      <div class="info">
+        <h1 class="user-name">{{ (student$ | async).userName }}</h1>
+        <a class="portfolio" href="https://hh.ru">Портфолио</a>
+      </div>
+    </div>
+    <div class="student-content">
+      <div class="student-chips">
+        <app-student-chips title="Специализации"></app-student-chips>
+        <app-student-chips title="Технологии"></app-student-chips>
+      </div>
+      <app-student-score></app-student-score>
+    </div>
   </div>
 </div>
