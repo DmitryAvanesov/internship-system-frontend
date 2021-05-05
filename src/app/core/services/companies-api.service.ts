@@ -11,6 +11,16 @@ export class CompaniesApiService {
   constructor() { }
 
   getCompanies(): Observable<CompanyModel[]> {
-    return of([]).pipe(delay(1000));
+    return of(
+      new Array(25)
+        .fill({
+          userName: 'NTR',
+        })
+        .map((val, index) => ({
+          ...val,
+          id: index,
+          score: Math.round(Math.random() * 500) / 100,
+        }))
+    ).pipe(delay(1000));
   }
 }
