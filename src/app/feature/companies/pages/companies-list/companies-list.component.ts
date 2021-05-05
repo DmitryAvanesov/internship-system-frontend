@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Store} from '@ngrx/store';
 import {selectAllCompanies, selectCompaniesLoading} from '@store/companies/companies.selectors';
-import { loadCompanies } from '@store/companies/companies.actions';
+import {loadCompanies} from '@store/companies/companies.actions';
 
 @Component({
   selector: 'app-companies-list',

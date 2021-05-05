@@ -23,7 +23,8 @@
                 </div>
                 <ion-list *ngIf="specialization.isOpen">
                   <app-priority-students-list-item
-                    [students]="students"
+                    *ngFor="let student of students"
+                    [student]="student"
                   ></app-priority-students-list-item>
                 </ion-list>
               </div>

@@ -7,7 +7,7 @@ import {StudentModel} from '@store/students/models/student.model';
   styleUrls: ['./priority-students-list-item.component.scss'],
 })
 export class PriorityStudentsListItemComponent implements OnInit {
-  @Input() students: StudentModel[] = [];
+  @Input() student: StudentModel;
   constructor() { }
 
   ngOnInit() {}

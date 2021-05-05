@@ -3,6 +3,12 @@
     <app-loader></app-loader>
   </ng-template>
   <div *ngIf="!(companiesLoading$ | async) else loader" class="companies__table">
-    Companies Table
+    <ion-list lines="none">
+      <app-companies-list-item
+        *ngFor="let company of companies$ | async"
+        [company]="company"
+      >
+      </app-companies-list-item>
+    </ion-list>
   </div>
 </div>

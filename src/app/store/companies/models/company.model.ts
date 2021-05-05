@@ -1,1 +1,4 @@
-export interface CompanyModel {}
+export interface CompanyModel {
+  userName: string;
+  id: string;
+}
