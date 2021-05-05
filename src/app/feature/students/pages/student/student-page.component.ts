@@ -19,6 +19,8 @@ export class StudentPageComponent implements OnInit {
   constructor(private store: Store) {}
 
   ngOnInit() {
+    this.store.dispatch(loadStudents());
+
     this.routeId$.subscribe((id) => {
       this.student$ = this.store.select(selectStudent, { id });
     });
