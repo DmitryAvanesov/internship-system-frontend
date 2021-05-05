@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouteReuseStrategy } from '@angular/router';
+import { RouteReuseStrategy, RouterModule } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
@@ -12,6 +12,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
 import { appReducers } from './store/root.reducer';
 import { EffectsModule } from '@ngrx/effects';
+import { appRoutes } from 'src/app/app.routes';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 @NgModule({
   declarations: [AppComponent, LayoutComponent],
@@ -22,6 +24,7 @@ import { EffectsModule } from '@ngrx/effects';
     AppRoutingModule,
     EffectsModule.forRoot([]),
     StoreModule.forRoot(appReducers),
+    StoreRouterConnectingModule.forRoot(),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
