@@ -6,12 +6,14 @@ import {CompaniesEffects} from '../../store/companies/companies.effects';
 import {SharedModule} from '@shared/shared.module';
 import { CompanyComponent } from './pages/company/company.component';
 import { CompaniesListComponent } from './pages/companies-list/companies-list.component';
+import {PriorityStudentsListItemComponent} from '@companies/components/priority-students-list-item/priority-students-list-item.component';
 
 
 @NgModule({
   declarations: [
     CompaniesListComponent,
     CompanyComponent,
+    PriorityStudentsListItemComponent,
   ],
   imports: [
     CommonModule,
