@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { loadStudents } from 'src/app/store/students/students.actions';
-import {
-  selectAllStudents,
-  selectStudentsLoading,
-} from 'src/app/store/students/students.selectors';
+import { selectAllStudents } from 'src/app/store/students/students.selectors';
 
 @Component({
   selector: 'app-students-list',

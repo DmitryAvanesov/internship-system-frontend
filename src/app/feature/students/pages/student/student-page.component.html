@@ -1,0 +1,8 @@
+<div class="app-container student">
+  <ng-template #loader>
+    <app-loader></app-loader>
+  </ng-template>
+  <div *ngIf="student$ | async; else loader">
+    {{ (student$ | async).id }}
+  </div>
+</div>
