@@ -6,22 +6,15 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { LayoutComponent } from '@core/layout/layout/layout.component';
-import { HeaderComponent } from '@core/layout/header/header.component';
-import { MenuComponent } from '@core/layout/menu/menu.component';
-import {environment} from '../environments/environment';
+import { LayoutComponent } from '@core/layout/layout.component';
+import { environment } from '../environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import {StoreModule} from '@ngrx/store';
-import {appReducers} from './store/root.reducer';
-import {EffectsModule} from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { appReducers } from './store/root.reducer';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LayoutComponent,
-    HeaderComponent,
-    MenuComponent
-  ],
+  declarations: [AppComponent, LayoutComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
@@ -29,7 +22,7 @@ import {EffectsModule} from '@ngrx/effects';
     AppRoutingModule,
     EffectsModule.forRoot([]),
     StoreModule.forRoot(appReducers),
-    !environment.production ? StoreDevtoolsModule.instrument() : []
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

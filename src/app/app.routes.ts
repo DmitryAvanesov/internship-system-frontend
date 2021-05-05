@@ -1,16 +1,16 @@
-import { Route } from "@angular/router";
+import { Route } from '@angular/router';
 
-export const appRoutes: {[key: string]: Route} = {
+export const appRoutes: { [key: string]: Route } = {
   companies: {
     path: 'companies',
     data: {
-      title: 'Компании'
-    }
+      title: 'Компании',
+    },
   },
   students: {
     path: 'students',
     data: {
-      title: 'Студенты'
-    }
-  }
-}
+      title: 'Студенты',
+    },
+  },
+};

@@ -1,11 +1,11 @@
-import { RouterModule, Routes } from "@angular/router";
-import { StudentsListComponent } from "./students-list/students-list.component";
+import { RouterModule, Routes } from '@angular/router';
+import { StudentsPageComponent } from '@students/students-page/students-page.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: StudentsListComponent,
-  }
+    component: StudentsPageComponent,
+  },
 ];
 
 export const StudentsRouting = RouterModule.forChild(routes);
