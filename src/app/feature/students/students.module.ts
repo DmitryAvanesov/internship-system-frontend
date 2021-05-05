@@ -8,6 +8,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StudentsEffects } from 'src/app/store/students/students.effects';
 import { StudentsPageComponent } from '@students/students-page/students-page.component';
 import { StudentsSearchComponent } from '@students/students-search/students-search.component';
+import { StudentPageComponent } from '@students/student-page/student-page.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { StudentsSearchComponent } from '@students/students-search/students-sear
     StudentsListComponent,
     StudentsListItemComponent,
     StudentsSearchComponent,
+    StudentPageComponent,
   ],
   imports: [
     CommonModule,

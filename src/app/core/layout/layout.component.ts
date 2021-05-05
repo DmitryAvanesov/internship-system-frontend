@@ -1,13 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  ActivatedRoute,
-  NavigationEnd,
-  RouteConfigLoadEnd,
-  Router,
-} from '@angular/router';
-import { RouteData } from '@core/types/route-data.interface';
-import { filter, switchMap, take } from 'rxjs/operators';
+import { RouteData } from 'src/app/store/router/models/route-data.model';
+import { Store } from '@ngrx/store';
 import { appRoutes } from 'src/app/app.routes';
+import { selectRouteData } from 'src/app/store/router/router.selectors';
 
 @Component({
   selector: 'app-layout',
@@ -17,17 +12,13 @@ import { appRoutes } from 'src/app/app.routes';
 export class LayoutComponent implements OnInit {
   routes = Object.keys(appRoutes).map((el) => appRoutes[el]);
   title: string;
+  routeData$ = this.store.select(selectRouteData);
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(private store: Store) {}
 
   ngOnInit() {
-    this.router.events
-      .pipe(
-        filter((routeEvent) => routeEvent instanceof NavigationEnd),
-        switchMap(() => this.route.firstChild.data)
-      )
-      .subscribe((data: RouteData) => {
-        this.title = data.title;
-      });
+    this.routeData$.subscribe((data: RouteData) => {
+      this.title = data?.title;
+    });
   }
 }
