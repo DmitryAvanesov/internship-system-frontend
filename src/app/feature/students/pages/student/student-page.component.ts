@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { loadCompanies } from '@store/companies/companies.actions';
 import { Observable } from 'rxjs';
 import { selectRouteParam } from 'src/app/store/router/router.selectors';
 import { StudentModel } from 'src/app/store/students/models/student.model';
@@ -20,6 +21,7 @@ export class StudentPageComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(loadStudents());
+    this.store.dispatch(loadCompanies());
 
     this.routeId$.subscribe((id) => {
       this.student$ = this.store.select(selectStudent, { id });

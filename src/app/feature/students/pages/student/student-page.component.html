@@ -11,7 +11,7 @@
       </ion-avatar>
       <div class="info">
         <h1 class="user-name">{{ (student$ | async).userName }}</h1>
-        <a class="portfolio" href="https://hh.ru">Портфолио</a>
+        <a class="portfolio" href="https://hh.ru" target="_blank">Портфолио</a>
       </div>
     </div>
     <div class="student-content">
@@ -21,5 +21,6 @@
       </div>
       <app-student-score></app-student-score>
     </div>
+    <app-student-priority-list></app-student-priority-list>
   </div>
 </div>
