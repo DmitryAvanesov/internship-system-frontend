@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { StudentModel } from '@store/students/models/student.model';
+import { selectAllStudents } from 'src/app/store/students/students.selectors';
 
 @Component({
   selector: 'app-students-list',
@@ -9,7 +11,7 @@ import { StudentModel } from '@store/students/models/student.model';
 export class StudentsListComponent implements OnInit {
   @Input() students: StudentModel[];
 
-  constructor() {}
+  constructor(private store: Store) {}
 
   ngOnInit() {}
 }
