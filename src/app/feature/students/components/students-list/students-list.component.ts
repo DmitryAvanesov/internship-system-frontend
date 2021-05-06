@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { selectAllStudents } from 'src/app/store/students/students.selectors';
+import { Component, Input, OnInit } from '@angular/core';
+import { StudentModel } from '@store/students/models/student.model';
 
 @Component({
   selector: 'app-students-list',
@@ -8,9 +7,9 @@ import { selectAllStudents } from 'src/app/store/students/students.selectors';
   styleUrls: ['./students-list.component.scss'],
 })
 export class StudentsListComponent implements OnInit {
-  students$ = this.store.select(selectAllStudents);
+  @Input() students: StudentModel[];
 
-  constructor(private store: Store) {}
+  constructor() {}
 
   ngOnInit() {}
 }

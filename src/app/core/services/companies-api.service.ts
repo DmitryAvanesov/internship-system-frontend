@@ -1,18 +1,17 @@
 import { Injectable } from '@angular/core';
-import {Observable, of} from 'rxjs';
-import {CompanyModel} from '../../store/companies/models/company.model';
-import {delay} from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { CompanyModel } from '../../store/companies/models/company.model';
+import { delay } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CompaniesApiService {
-
-  constructor() { }
+  constructor() {}
 
   getCompanies(): Observable<CompanyModel[]> {
     return of(
-      new Array(25)
+      new Array(7)
         .fill({
           userName: 'NTR',
         })

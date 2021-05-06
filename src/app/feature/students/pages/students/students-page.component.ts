@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { loadStudents } from 'src/app/store/students/students.actions';
-import { selectStudentsLoading } from 'src/app/store/students/students.selectors';
+import {
+  selectAllStudents,
+  selectStudentsLoading,
+} from 'src/app/store/students/students.selectors';
 
 @Component({
   selector: 'app-students-page',
@@ -9,6 +12,7 @@ import { selectStudentsLoading } from 'src/app/store/students/students.selectors
   styleUrls: ['./students-page.component.scss'],
 })
 export class StudentsPageComponent implements OnInit {
+  students$ = this.store.select(selectAllStudents);
   studentsLoading$ = this.store.select(selectStudentsLoading);
 
   constructor(private store: Store) {}

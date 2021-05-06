@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { loadCompanies } from '@store/companies/companies.actions';
+import { selectAllCompanies } from '@store/companies/companies.selectors';
 import { Observable } from 'rxjs';
 import { selectRouteParam } from 'src/app/store/router/router.selectors';
 import { StudentModel } from 'src/app/store/students/models/student.model';
@@ -15,6 +16,7 @@ import { selectStudent } from 'src/app/store/students/students.selectors';
 })
 export class StudentPageComponent implements OnInit {
   routeId$ = this.store.select(selectRouteParam('id'));
+  companies$ = this.store.select(selectAllCompanies);
   student$: Observable<StudentModel>;
 
   constructor(private store: Store) {}
