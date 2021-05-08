@@ -7,9 +7,9 @@ import { StudentModel } from 'src/app/store/students/models/student.model';
   styleUrls: ['./students-list-item.component.scss'],
 })
 export class StudentsListItemComponent implements OnInit {
-  constructor() {}
-
   @Input() student: StudentModel;
+
+  constructor() {}
 
   ngOnInit() {}
 }

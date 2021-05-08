@@ -1,0 +1,26 @@
+.student {
+  ion-col {
+    display: flex;
+    padding-bottom: 24px;
+
+    .student-header {
+      display: flex;
+      align-items: center;
+
+      .avatar {
+        margin-right: 16px;
+        min-width: 64px;
+      }
+
+      .info {
+        .user-name {
+          margin: 0 0 5px;
+        }
+
+        .portfolio {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

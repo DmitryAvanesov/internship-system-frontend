@@ -1,0 +1,14 @@
+<ion-card class="card">
+  <ion-card-header>
+    <ion-card-title>Приоритеты студента</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-list lines="none">
+      <app-student-priority-list-item
+        *ngFor="let company of companies"
+        [company]="company"
+      ></app-student-priority-list-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>

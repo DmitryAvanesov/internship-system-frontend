@@ -1,10 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { loadStudents } from 'src/app/store/students/students.actions';
-import {
-  selectAllStudents,
-  selectStudentsLoading,
-} from 'src/app/store/students/students.selectors';
+import { StudentModel } from '@store/students/models/student.model';
+import { selectAllStudents } from 'src/app/store/students/students.selectors';
 
 @Component({
   selector: 'app-students-list',
@@ -12,7 +9,7 @@ import {
   styleUrls: ['./students-list.component.scss'],
 })
 export class StudentsListComponent implements OnInit {
-  students$ = this.store.select(selectAllStudents);
+  @Input() students: StudentModel[];
 
   constructor(private store: Store) {}
 

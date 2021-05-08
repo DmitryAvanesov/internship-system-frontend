@@ -15,3 +15,8 @@ export const selectStudentsLoading = createSelector(
   selectStudents,
   (state) => state.studentsLoading
 );
+
+export const selectStudent = createSelector(
+  selectStudents,
+  (state, props) => state.entities[props.id]
+);

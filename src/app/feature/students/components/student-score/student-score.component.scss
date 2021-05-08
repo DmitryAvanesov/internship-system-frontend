@@ -1,0 +1,31 @@
+:host {
+  flex-grow: 1;
+}
+
+.card {
+  .student-score {
+    ion-row {
+      padding: 4px 12px;
+      border-radius: 3px;
+
+      &:not(.table-header):hover {
+        background-color: #dce9ff;
+      }
+    }
+  }
+
+  .semester {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 12px 0;
+
+    ion-button {
+      font-size: 12px;
+    }
+
+    .semester-label {
+      font-size: 16px;
+    }
+  }
+}
