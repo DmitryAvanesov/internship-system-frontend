@@ -9,11 +9,11 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "preinstall": "npm install -g angular-cli"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
+    "@angular/cli": "^11.2.11",
     "@angular/common": "~11.2.0",
     "@angular/core": "~11.2.0",
     "@angular/forms": "~11.2.0",
@@ -34,7 +34,6 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1102.4",
-    "@angular/cli": "^11.2.11",
     "@angular/compiler": "~11.2.0",
     "@angular/compiler-cli": "~11.2.0",
     "@angular/language-service": "~11.2.0",
