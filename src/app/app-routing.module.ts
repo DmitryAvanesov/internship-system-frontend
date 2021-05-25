@@ -6,7 +6,7 @@ import { appRoutes } from './app.routes';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '',
+    redirectTo: appRoutes.companies.path,
     pathMatch: 'full',
   },
   {
