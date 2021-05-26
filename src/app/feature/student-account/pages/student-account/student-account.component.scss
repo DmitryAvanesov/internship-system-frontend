@@ -1,12 +1,14 @@
 .student-account {
   width: 75%;
-  margin: 0 auto;
+
+  & > * {
+    margin-bottom: 32px;
+  }
 
   .student-account-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 32px;
 
     .student-header {
       display: flex;
@@ -28,5 +30,10 @@
       display: flex;
       justify-content: space-between;
     }
+  }
+
+  .buttons-block {
+    display: flex;
+    justify-content: flex-end;
   }
 }
