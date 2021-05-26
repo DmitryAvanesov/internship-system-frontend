@@ -1,4 +1,6 @@
-import { Route } from '@angular/router';
+import {Route, UrlSegment, UrlSegmentGroup} from '@angular/router';
+import {RolesEnum} from '@core/enums/roles.enum';
+import {AuthGuard} from '@core/guards/auth.guard';
 
 export const appRoutes: { [key: string]: Route } = {
   companies: {
@@ -13,4 +15,22 @@ export const appRoutes: { [key: string]: Route } = {
       title: 'Студенты',
     },
   },
+  companyAccount: {
+    path: 'company-account',
+      data: {
+      title: 'ЛК компании',
+        roles: [RolesEnum.Company],
+        hidden: true,
+    },
+    canLoad: [AuthGuard],
+  },
+  studentAccount: {
+    path: 'student-account',
+      data: {
+      title: 'ЛК студента',
+        roles: [RolesEnum.Student],
+        hidden: true,
+    },
+    canLoad: [AuthGuard],
+  }
 };
