@@ -18,6 +18,8 @@
       "@core/*": ["src/app/core/*"],
       "@companies/*": ["src/app/feature/companies/*"],
       "@students/*": ["src/app/feature/students/*"],
+      "@company-account/*": ["src/app/feature/company-account/*"],
+      "@student-account/*": ["src/app/feature/student-account/*"],
       "@store/*": ["src/app/store/*"]
     }
   },

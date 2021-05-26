@@ -46,7 +46,15 @@
               </ion-button>
             </ion-menu-toggle>
           </ion-buttons>
-          <ion-title>{{ title || "" }}</ion-title>
+          <div class="toolbar">
+            <ion-title>{{ title || "" }}</ion-title>
+            <ion-icon
+              *ngIf="isUserLoggedIn$ | async"
+              [routerLink]="[accountLink]"
+              class="toolbar__user-icon"
+              name="person-circle-outline"
+            ></ion-icon>
+          </div>
         </ion-toolbar>
       </ion-header>
       <ion-content class="ion-padding">
