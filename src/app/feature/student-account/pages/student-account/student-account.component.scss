@@ -1,32 +1,32 @@
 .student-account {
+  width: 75%;
+  margin: 0 auto;
+
   .student-account-header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
 
     .student-header {
       display: flex;
       align-items: center;
-      margin-bottom: 32px;
 
       .avatar {
         margin-right: 16px;
         min-width: 64px;
       }
-
-      .info {
-        .user-name {
-          margin: 0 0 5px;
-        }
-
-        .portfolio {
-          text-decoration: none;
-        }
-      }
     }
   }
 
   .inputs-block {
-    width: 75%;
-    margin: 0 auto 16px;
+    margin-bottom: 16px;
+  }
+
+  .company-select {
+    &__row {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 }
