@@ -1,0 +1,32 @@
+.student-account {
+  .student-account-header {
+    display: flex;
+    justify-content: space-between;
+
+    .student-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 32px;
+
+      .avatar {
+        margin-right: 16px;
+        min-width: 64px;
+      }
+
+      .info {
+        .user-name {
+          margin: 0 0 5px;
+        }
+
+        .portfolio {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .inputs-block {
+    width: 75%;
+    margin: 0 auto 16px;
+  }
+}
