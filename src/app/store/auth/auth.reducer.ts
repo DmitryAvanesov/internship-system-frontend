@@ -5,7 +5,7 @@ import {setRoles} from '@store/auth/auth.actions';
 
 const initialState: AuthState = {
   isLoggedIn: true,
-  roles: [RolesEnum.Student]
+  roles: [RolesEnum.Company]
 };
 
 export const authReducer = createReducer(

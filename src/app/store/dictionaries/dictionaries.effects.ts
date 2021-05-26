@@ -18,7 +18,6 @@ export class DictionariesEffects {
         ])
       ),
       mergeMap((data) => {
-        console.log(data);
         return [
           technologiesLoaded({technologies: data[0]}),
           specializationsLoaded({specializations: data[1]}),
