@@ -20,6 +20,7 @@
       "@students/*": ["src/app/feature/students/*"],
       "@company-account/*": ["src/app/feature/company-account/*"],
       "@student-account/*": ["src/app/feature/student-account/*"],
+      "@auth/*": ["src/app/auth/*"],
       "@store/*": ["src/app/store/*"]
     }
   },

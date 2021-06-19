@@ -5,6 +5,7 @@ import { appRoutes } from './app.routes';
 import {CompanyAccountModule} from "./feature/company-account/company-account.module";
 import {Store} from "@ngrx/store";
 import {selectUserRoles} from "@store/auth/auth.selectors";
+import {AuthGuard} from '@core/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -26,11 +27,18 @@ const routes: Routes = [
   ...appRoutes.companyAccount,
     loadChildren: (): Promise<unknown> =>
     import('@company-account/company-account.module').then((m) => m.CompanyAccountModule),
+    canLoad: [AuthGuard]
   },
   {
   ...appRoutes.studentAccount,
     loadChildren: (): Promise<unknown> =>
     import('@student-account/student-account.module').then((m) => m.StudentAccountModule),
+    canLoad: [AuthGuard]
+  },
+  {
+    ...appRoutes.auth,
+    loadChildren: (): Promise<unknown> =>
+      import('@auth/auth.module').then((m) => m.AuthModule),
   }
 ];
 

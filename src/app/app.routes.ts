@@ -32,5 +32,12 @@ export const appRoutes: { [key: string]: Route } = {
         hidden: true,
     },
     canLoad: [AuthGuard],
+  },
+  auth: {
+    path: 'auth',
+    data: {
+      title: 'Авторизация',
+      hidden: true,
+    }
   }
 };

@@ -14,6 +14,7 @@ import { appReducers } from './store/root.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import {DictionariesEffects} from '@store/dictionaries/dictionaries.effects';
+import {AuthEffects} from '@store/auth/auth.effects';
 
 @NgModule({
   declarations: [AppComponent, LayoutComponent],
@@ -22,7 +23,7 @@ import {DictionariesEffects} from '@store/dictionaries/dictionaries.effects';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    EffectsModule.forRoot([DictionariesEffects]),
+    EffectsModule.forRoot([DictionariesEffects, AuthEffects]),
     StoreModule.forRoot(appReducers),
     StoreRouterConnectingModule.forRoot(),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
