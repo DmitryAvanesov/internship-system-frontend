@@ -6,7 +6,7 @@ import { selectRouteData } from 'src/app/store/router/router.selectors';
 import {isUserLoggedIn, selectUserRoles} from '@store/auth/auth.selectors';
 import {Subject} from 'rxjs';
 import {filter, takeUntil} from 'rxjs/operators';
-import {accountRolesLinks} from "@core/consts/account-roles-links";
+import {accountRolesLinks} from '@core/consts/account-roles-links';
 
 @Component({
   selector: 'app-layout',

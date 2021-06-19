@@ -2,7 +2,7 @@ import {createEntityAdapter} from '@ngrx/entity';
 import {DictionaryElementModel} from '@store/dictionaries/models/dictionary-element.model';
 import {DictionariesState} from '@store/dictionaries/dictionaries.state';
 import {createReducer, on} from '@ngrx/store';
-import {specializationsLoaded, technologiesLoaded} from '@store/dictionaries/dictionaries.actions';
+import {saveSpecialization, saveTechnology, specializationsLoaded, technologiesLoaded} from '@store/dictionaries/dictionaries.actions';
 
 export const technologiesAdapter = createEntityAdapter<DictionaryElementModel>();
 export const specializationsAdapter = createEntityAdapter<DictionaryElementModel>();
@@ -20,4 +20,10 @@ export const dictionariesReducer = createReducer<DictionariesState>(
   on(specializationsLoaded, (state, {specializations}) =>
     ({...state, specializations: specializationsAdapter.setAll(specializations, state.specializations)})
   ),
+  on(saveTechnology, (state, {technology}) =>
+    ({...state, technologies: technologiesAdapter.upsertOne(technology, state.technologies)})
+  ),
+  on(saveSpecialization, (state, {specialization}) =>
+    ({...state, specializations: specializationsAdapter.upsertOne(specialization, state.specializations)})
+  )
 );

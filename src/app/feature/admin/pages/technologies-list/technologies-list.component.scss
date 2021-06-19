@@ -1,0 +1,10 @@
+.item {
+  &:hover {
+    cursor: pointer;
+    --background: #dce9ff;
+    --border-radius: 3px;
+  }
+  &__label {
+
+  }
+}

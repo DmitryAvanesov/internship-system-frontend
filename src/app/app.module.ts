@@ -14,6 +14,7 @@ import { appReducers } from './store/root.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import {DictionariesEffects} from '@store/dictionaries/dictionaries.effects';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, LayoutComponent],
@@ -22,6 +23,7 @@ import {DictionariesEffects} from '@store/dictionaries/dictionaries.effects';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    ReactiveFormsModule,
     EffectsModule.forRoot([DictionariesEffects]),
     StoreModule.forRoot(appReducers),
     StoreRouterConnectingModule.forRoot(),

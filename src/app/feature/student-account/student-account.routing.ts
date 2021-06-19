@@ -1,5 +1,5 @@
 import {RouterModule, Routes} from '@angular/router';
-import {StudentAccountComponent} from './pages/student-account/student-account.component';
+import {StudentAccountComponent} from '@shared/components/student-account/student-account.component';
 
 const routes: Routes = [
   {

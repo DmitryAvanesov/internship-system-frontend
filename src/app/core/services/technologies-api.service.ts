@@ -23,4 +23,12 @@ export class TechnologiesApiService {
         }))
     ).pipe(delay(1000));
   }
+
+  createNewTechnology(newTechnology: DictionaryElementModel): Observable<DictionaryElementModel> {
+    return of(newTechnology);
+  }
+
+  changeTechnology(technology: DictionaryElementModel): Observable<DictionaryElementModel> {
+    return of(technology);
+  }
 }

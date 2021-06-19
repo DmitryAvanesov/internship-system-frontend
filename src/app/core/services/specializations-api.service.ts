@@ -22,4 +22,12 @@ export class SpecializationsApiService {
         }))
     ).pipe(delay(1000));
   }
+
+  changeTechnology(newEntity: any): Observable<DictionaryElementModel> {
+    return of(newEntity);
+  }
+
+  createNewTechnology(newEntity: any): Observable<DictionaryElementModel> {
+    return of(newEntity);
+  }
 }
