@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  api: 'https://internship-system-backend.herokuapp.com/api',
 };
 
 /*
