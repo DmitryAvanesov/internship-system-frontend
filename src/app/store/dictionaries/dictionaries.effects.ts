@@ -1,10 +1,14 @@
-import {Injectable} from '@angular/core';
-import {Actions, createEffect, ofType} from '@ngrx/effects';
-import {SpecializationsApiService} from '@core/services/specializations-api.service';
-import {TechnologiesApiService} from '@core/services/technologies-api.service';
-import {loadDictionaries, specializationsLoaded, technologiesLoaded} from '@store/dictionaries/dictionaries.actions';
-import {combineLatest} from 'rxjs';
-import {map, mergeMap} from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { SpecializationsApiService } from '@core/services/specializations-api.service';
+import { TechnologiesApiService } from '@core/services/technologies-api.service';
+import {
+  loadDictionaries,
+  specializationsLoaded,
+  technologiesLoaded,
+} from '@store/dictionaries/dictionaries.actions';
+import { combineLatest } from 'rxjs';
+import { map, mergeMap } from 'rxjs/operators';
 
 @Injectable()
 export class DictionariesEffects {
@@ -19,8 +23,8 @@ export class DictionariesEffects {
       ),
       mergeMap((data) => {
         return [
-          technologiesLoaded({technologies: data[0]}),
-          specializationsLoaded({specializations: data[1]}),
+          technologiesLoaded({ technologies: data[0] }),
+          specializationsLoaded({ specializations: data[1] }),
         ];
       })
     )
@@ -29,6 +33,6 @@ export class DictionariesEffects {
   constructor(
     private actions$: Actions,
     private specializationsApiService: SpecializationsApiService,
-    private technologiesApiService: TechnologiesApiService,
+    private technologiesApiService: TechnologiesApiService
   ) {}
 }

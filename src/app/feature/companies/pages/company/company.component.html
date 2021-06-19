@@ -15,11 +15,26 @@
                 *ngFor="let specialization of specializations"
                 class="priority__specialization"
               >
-                <div class="priority__specialization-header" (click)="toggleSpecialization(specialization.id)">
-                  <ion-button class="priority__toggle-button" fill="clear" shape="round">
-                    <ion-icon [name]="specialization.isOpen ? 'arrow-down-outline' : 'arrow-up-outline'"></ion-icon>
+                <div
+                  class="priority__specialization-header"
+                  (click)="toggleSpecialization(specialization.id)"
+                >
+                  <ion-button
+                    class="priority__toggle-button"
+                    fill="clear"
+                    shape="round"
+                  >
+                    <ion-icon
+                      [name]="
+                        specialization.isOpen
+                          ? 'arrow-down-outline'
+                          : 'arrow-up-outline'
+                      "
+                    ></ion-icon>
                   </ion-button>
-                  <p class="priority__specialization-title">{{specialization.name}}</p>
+                  <p class="priority__specialization-title">
+                    {{ specialization.name }}
+                  </p>
                 </div>
                 <ion-list *ngIf="specialization.isOpen">
                   <app-priority-students-list-item
@@ -39,13 +54,12 @@
           </ion-card-header>
 
           <ion-card-content>
-            Keep close to Nature's heart... and break clear away, once in awhile,
-            and climb a mountain or spend a week in the woods. Wash your spirit clean.
+            Keep close to Nature's heart... and break clear away, once in
+            awhile, and climb a mountain or spend a week in the woods. Wash your
+            spirit clean.
           </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
-
-
 </div>

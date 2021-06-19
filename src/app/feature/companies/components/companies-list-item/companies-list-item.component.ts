@@ -1,5 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {CompanyModel} from '../../../../store/companies/models/company.model';
+import { Component, Input, OnInit } from '@angular/core';
+import { CompanyModel } from '../../../../store/companies/models/company.model';
 
 @Component({
   selector: 'app-companies-list-item',
@@ -8,8 +8,7 @@ import {CompanyModel} from '../../../../store/companies/models/company.model';
 })
 export class CompaniesListItemComponent implements OnInit {
   @Input() company: CompanyModel;
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {}
-
 }

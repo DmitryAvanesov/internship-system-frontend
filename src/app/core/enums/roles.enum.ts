@@ -1,3 +1,4 @@
 export enum RolesEnum {
-  Student, Company
+  Student,
+  Company,
 }
