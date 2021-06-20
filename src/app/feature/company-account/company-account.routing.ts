@@ -1,5 +1,5 @@
-import {RouterModule, Routes} from '@angular/router';
-import {CompanyAccountComponent} from '@shared/components/company-account/company-account.component';
+import { RouterModule, Routes } from '@angular/router';
+import { CompanyAccountComponent } from '@shared/components/company-account/company-account.component';
 
 const routes: Routes = [
   {

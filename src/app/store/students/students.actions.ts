@@ -13,4 +13,4 @@ export const changeStudent = createAction(
 export const studentChanged = createAction(
   '[Students] Student changed',
   props<{ newStudent: StudentModel }>()
-)
+);

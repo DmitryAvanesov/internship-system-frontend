@@ -1,10 +1,13 @@
 <div class="app-container">
-
   <ion-button (click)="createOrEdit()">Создать специализацию</ion-button>
 
   <div class="companies__table">
     <ion-list lines="none">
-      <ion-item *ngFor="let specialization of (specializations$ | async)" (click)="createOrEdit(specialization)" class="item">
+      <ion-item
+        *ngFor="let specialization of specializations$ | async"
+        (click)="createOrEdit(specialization)"
+        class="item"
+      >
         <ion-label class="item__label">
           {{ specialization.name }}
         </ion-label>

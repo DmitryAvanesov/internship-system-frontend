@@ -14,14 +14,22 @@ export const specializationsLoaded = createAction(
   props<{ specializations: DictionaryElementModel[] }>()
 );
 
-export const createOrSaveTechnology = createAction('[Dictionaries] Create or save technology',
-  props<{newEntity: DictionaryElementModel}>());
+export const createOrSaveTechnology = createAction(
+  '[Dictionaries] Create or save technology',
+  props<{ newEntity: DictionaryElementModel }>()
+);
 
-export const saveTechnology = createAction('[Dictionary] Save technology',
-  props<{technology: DictionaryElementModel}>());
+export const saveTechnology = createAction(
+  '[Dictionary] Save technology',
+  props<{ technology: DictionaryElementModel }>()
+);
 
-export const createOrSaveSpecialization = createAction('[Dictionaries] Create or save specialization',
-  props<{newEntity: DictionaryElementModel}>());
+export const createOrSaveSpecialization = createAction(
+  '[Dictionaries] Create or save specialization',
+  props<{ newEntity: DictionaryElementModel }>()
+);
 
-export const saveSpecialization = createAction('[Dictionary] Save specialization',
-  props<{specialization: DictionaryElementModel}>());
+export const saveSpecialization = createAction(
+  '[Dictionary] Save specialization',
+  props<{ specialization: DictionaryElementModel }>()
+);
