@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { StudentModel } from '@store/students/models/student.model';
 
 @Component({
@@ -6,9 +6,6 @@ import { StudentModel } from '@store/students/models/student.model';
   templateUrl: './priority-students-list-item.component.html',
   styleUrls: ['./priority-students-list-item.component.scss'],
 })
-export class PriorityStudentsListItemComponent implements OnInit {
+export class PriorityStudentsListItemComponent {
   @Input() student: StudentModel;
-  constructor() {}
-
-  ngOnInit() {}
 }

@@ -6,8 +6,6 @@ export interface DictionariesState {
   specializations: SpecializationsState;
 }
 
-export interface TechnologiesState
-  extends EntityState<DictionaryElementModel> {}
+export type TechnologiesState = EntityState<DictionaryElementModel>;
 
-export interface SpecializationsState
-  extends EntityState<DictionaryElementModel> {}
+export type SpecializationsState = EntityState<DictionaryElementModel>;
