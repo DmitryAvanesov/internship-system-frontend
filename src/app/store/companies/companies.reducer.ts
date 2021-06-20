@@ -2,7 +2,7 @@ import { createEntityAdapter } from '@ngrx/entity';
 import { CompanyModel } from './models/company.model';
 import { createReducer, on } from '@ngrx/store';
 import { CompaniesState } from './companies.state';
-import { companiesLoaded, loadCompanies } from './companies.actions';
+import {companiesLoaded, companyUpserted, loadCompanies} from './companies.actions';
 
 export const companiesAdapter = createEntityAdapter<CompanyModel>();
 
@@ -15,5 +15,6 @@ export const companiesReducer = createReducer<CompaniesState>(
   on(loadCompanies, (state) => ({ ...state, companiesLoading: true })),
   on(companiesLoaded, (state, { companies }) =>
     companiesAdapter.setAll(companies, { ...state, companiesLoading: false })
-  )
+  ),
+  on(companyUpserted, (state, {company}) => companiesAdapter.upsertOne(company, state)),
 );

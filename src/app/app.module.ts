@@ -24,6 +24,7 @@ import { InterviewsEffects } from '@store/interviews/interviews.effects';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    ReactiveFormsModule,
     HttpClientModule,
     EffectsModule.forRoot([DictionariesEffects, InterviewsEffects]),
     StoreModule.forRoot(appReducers),

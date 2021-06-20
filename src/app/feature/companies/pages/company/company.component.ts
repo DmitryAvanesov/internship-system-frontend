@@ -19,8 +19,17 @@ import { selectRouteParam } from '@store/router/router.selectors';
 import { StudentModel } from '@store/students/models/student.model';
 import { Observable, of } from 'rxjs';
 import { skipWhile } from 'rxjs/operators';
+import {Store} from '@ngrx/store';
+import {loadCompanies} from '@store/companies/companies.actions';
+import {loadStudents} from '@store/students/students.actions';
+import {CompanyModel} from '@store/companies/models/company.model';
+import {selectRouteParam} from '@store/router/router.selectors';
+import {selectAllCompanies, selectCompany} from '@store/companies/companies.selectors';
+import {selectStudent} from '@store/students/students.selectors';
+import {selectUserRoles} from '@store/auth/auth.selectors';
+import {RolesEnum} from '@core/enums/roles.enum';
 
-interface MockSpecialization {
+export interface MockSpecialization {
   id: string;
   name: string;
   isOpen: boolean;
@@ -44,6 +53,10 @@ export class CompanyComponent implements OnInit {
   positions: PositionModel[];
   positionId: string = null;
   interview$ = of(undefined);
+
+  userRoles$ = this.store.select(selectUserRoles);
+  adminRole = RolesEnum.Admin;
+
   specializations: MockSpecialization[] = [
     {
       id: '1',
@@ -76,6 +89,16 @@ export class CompanyComponent implements OnInit {
       interviews: [],
     },
   ];
+  constructor(private store: Store) {}
+
+  ngOnInit() {
+    this.store.dispatch(loadStudents());
+    this.store.dispatch(loadCompanies());
+
+    this.routeId$.subscribe((id) => {
+      this.company$ = this.store.select(selectCompany, { id });
+    });
+  }
 
   constructor(
     private store: Store,

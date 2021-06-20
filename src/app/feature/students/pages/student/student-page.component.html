@@ -14,17 +14,21 @@
             </ion-avatar>
             <div class="info">
               <h1 class="user-name">{{ (student$ | async).userName }}</h1>
-              <a class="portfolio" href="https://hh.ru" target="_blank">
+              <a class="portfolio" *ngIf="(student$ | async)?.info" [href]="(student$ | async)?.info" target="_blank">
                 Портфолио
               </a>
+              <ion-button
+                *ngIf="(userRoles$ | async) && (userRoles$ | async)[0] === adminRole"
+                [routerLink]="['/admin', 'student', (student$ | async)?.id]"
+              >Редактировать</ion-button>
             </div>
           </div>
         </ion-col>
         <ion-col [size]="12" [sizeLg]="4" [offsetLg]="1">
-          <app-student-chips title="Специализации"></app-student-chips>
+          <app-student-chips title="Специализации" [chipsList]="specializations"></app-student-chips>
         </ion-col>
         <ion-col [size]="12" [sizeLg]="4">
-          <app-student-chips title="Технологии"></app-student-chips>
+          <app-student-chips title="Технологии" [chipsList]="technologies"></app-student-chips>
         </ion-col>
       </ion-row>
       <ion-row>

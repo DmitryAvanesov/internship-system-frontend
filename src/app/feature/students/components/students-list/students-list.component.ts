@@ -8,7 +8,7 @@ import { StudentModel } from '@store/students/models/student.model';
   styleUrls: ['./students-list.component.scss'],
 })
 export class StudentsListComponent {
-  @Input() students: StudentModel[];
+  @Input() students: (StudentModel & {specializationNames: string[]})[];
 
-  constructor(private store: Store) {}
+  constructor() {}
 }

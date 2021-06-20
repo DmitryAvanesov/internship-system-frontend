@@ -16,4 +16,18 @@ export class TechnologiesApiService {
       `${environment.api}/Technologies`
     );
   }
+
+  createNewTechnology(newTechnology: DictionaryElementModel): Observable<DictionaryElementModel> {
+    return this.http.post<DictionaryElementModel>(`${environment.api}/Technologies`, {
+      ...newTechnology,
+      users: [],
+    });
+  }
+
+  changeTechnology(technology: DictionaryElementModel): Observable<DictionaryElementModel> {
+    return this.http.put<DictionaryElementModel>(`${environment.api}/Technologies`, {
+      ...technology,
+      users: [],
+    });
+  }
 }

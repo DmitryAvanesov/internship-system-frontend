@@ -1,4 +1,8 @@
-<div class="app-container student-account">
+<div
+  *ngIf="!(studentsLoading$ | async) else loader"
+  [formGroup]="form"
+  class="app-container student-account"
+>
   <!-- <ng-template #loader>
     <app-loader></app-loader>
   </ng-template> -->
@@ -11,30 +15,33 @@
         />
       </ion-avatar>
       <div class="info">
-        <h1 class="user-name">Иван Павлов</h1>
+        <h1 class="user-name">{{(student$ | async)?.userName}}</h1>
       </div>
     </div>
-    <ion-button color="primary">Записаться на собеседование</ion-button>
   </div>
   <ion-card class="inputs-block">
     <ion-card-content>
-      <ion-input placeholder="Ссылка на портфолио"></ion-input>
+      <ion-input placeholder="Ссылка на портфолио" formControlName="info"></ion-input>
       <ion-item>
         <ion-label>Специализации</ion-label>
-        <ion-select multiple [value]="['Frontend', 'Mobile']">
-          <ion-select-option value="Frontend">Frontend</ion-select-option>
-          <ion-select-option value="Backend">Backend</ion-select-option>
-          <ion-select-option value="Mobile">Mobile</ion-select-option>
+        <ion-select multiple formControlName="specializations">
+          <ion-select-option
+            *ngFor="let specialization of (allSpecializations$ | async)"
+            [value]="specialization.id"
+          >
+            {{specialization.name}}
+          </ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-label>Технологии</ion-label>
-        <ion-select multiple [value]="['Javascipt', 'MongoDB']">
-          <ion-select-option value="Javascipt">Javascipt</ion-select-option>
-          <ion-select-option value="C#">C#</ion-select-option>
-          <ion-select-option value="MongoDB">MongoDB</ion-select-option>
-          <ion-select-option value="TS">TS</ion-select-option>
-          <ion-select-option value="Flutter">Flutter</ion-select-option>
+        <ion-select multiple formControlName="technologies">
+          <ion-select-option
+            *ngFor="let technology of (allTechnologies$ | async)"
+            [value]="technology.id"
+          >
+            {{technology.name}}
+          </ion-select-option>
         </ion-select>
       </ion-item>
     </ion-card-content>
@@ -66,6 +73,10 @@
     </ion-card-content>
   </ion-card>
   <div class="buttons-block">
-    <ion-button class="save-button" color="primary">Сохранить</ion-button>
+    <ion-button (click)="save()" class="save-button" color="primary">Сохранить</ion-button>
   </div>
 </div>
+
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>
