@@ -5,8 +5,4 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './student-score.component.html',
   styleUrls: ['./student-score.component.scss'],
 })
-export class StudentScoreComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit() {}
-}
+export class StudentScoreComponent {}

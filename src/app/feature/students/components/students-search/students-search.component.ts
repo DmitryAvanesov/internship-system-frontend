@@ -5,8 +5,4 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './students-search.component.html',
   styleUrls: ['./students-search.component.scss'],
 })
-export class StudentsSearchComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit() {}
-}
+export class StudentsSearchComponent {}
