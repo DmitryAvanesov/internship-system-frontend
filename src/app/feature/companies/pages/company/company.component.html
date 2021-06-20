@@ -1,7 +1,11 @@
 <div class="app-container company">
-  <h1>Company Name</h1>
-
   <ion-grid>
+    <ion-row class="company__header">
+      <h1>Company Name</h1>
+      <ion-button>
+        {{ (interviews$ | async) ? "Записаться на собеседование" : "Записан" }}
+      </ion-button>
+    </ion-row>
     <ion-row>
       <ion-col size-lg="8" size-xs="12">
         <ion-card class="priority">

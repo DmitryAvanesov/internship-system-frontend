@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { loadInterviews } from '@store/interviews/interviews.actions';
+import { selectAllInterviews } from '@store/interviews/interviews.selectors';
 import { StudentModel } from '@store/students/models/student.model';
 
 interface MockSpecialization {
@@ -26,11 +29,28 @@ export class CompanyComponent implements OnInit {
     },
   ];
   students: StudentModel[] = [
-    { id: '1', userName: 'Ivan', score: Math.round(Math.random() * 500) / 100 },
-    { id: '2', userName: 'Ivan', score: Math.round(Math.random() * 500) / 100 },
-    { id: '3', userName: 'Ivan', score: Math.round(Math.random() * 500) / 100 },
+    {
+      id: '1',
+      userName: 'Ivan',
+      score: Math.round(Math.random() * 500) / 100,
+      interviews: [],
+    },
+    {
+      id: '2',
+      userName: 'Ivan',
+      score: Math.round(Math.random() * 500) / 100,
+      interviews: [],
+    },
+    {
+      id: '3',
+      userName: 'Ivan',
+      score: Math.round(Math.random() * 500) / 100,
+      interviews: [],
+    },
   ];
-  constructor() {}
+  interviews$ = this.store.select(selectAllInterviews);
+
+  constructor(private store: Store) {}
 
   ngOnInit() {}
 

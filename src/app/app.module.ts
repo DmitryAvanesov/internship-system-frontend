@@ -15,6 +15,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { DictionariesEffects } from '@store/dictionaries/dictionaries.effects';
 import { HttpClientModule } from '@angular/common/http';
+import { InterviewsEffects } from '@store/interviews/interviews.effects';
 
 @NgModule({
   declarations: [AppComponent, LayoutComponent],
@@ -24,7 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    EffectsModule.forRoot([DictionariesEffects]),
+    EffectsModule.forRoot([DictionariesEffects, InterviewsEffects]),
     StoreModule.forRoot(appReducers),
     StoreRouterConnectingModule.forRoot(),
     !environment.production ? StoreDevtoolsModule.instrument() : [],

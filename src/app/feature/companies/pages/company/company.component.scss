@@ -1,22 +1,28 @@
 .company {
-}
-
-.priority {
-  &__specialization-header {
+  &__header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    margin-bottom: 24px;
+  }
 
-    &:hover {
-      cursor: pointer;
-      background: #dce9ff;
-      border-radius: 3px;
+  .priority {
+    &__specialization-header {
+      display: flex;
+      align-items: center;
+
+      &:hover {
+        cursor: pointer;
+        background: #dce9ff;
+        border-radius: 3px;
+      }
     }
-  }
-  &__specialization-title {
-    font-weight: 700;
-    font-size: 18px;
-  }
-  &__toggle-button {
-    --background-hover: #dce9ff;
+    &__specialization-title {
+      font-weight: 700;
+      font-size: 18px;
+    }
+    &__toggle-button {
+      --background-hover: #dce9ff;
+    }
   }
 }
