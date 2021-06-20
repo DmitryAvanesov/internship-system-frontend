@@ -1,3 +1,5 @@
+import {DictionaryElementModel} from '@store/dictionaries/models/dictionary-element.model';
+
 export interface StudentModel {
   id: string;
   userName: string;
@@ -15,9 +17,9 @@ export interface StudentModel {
   // lockoutEnd: string;
   // lockoutEnabled: boolean;
   // accessFailedCount: number;
-  // info: string;
-  // specializations: any[];
-  // technologies: any[];
+  info?: string;
+  specializations?: string[];
+  technologies?: string[];
   // subjectInstances: any[];
   // firstName: string;
   // middleName: string;

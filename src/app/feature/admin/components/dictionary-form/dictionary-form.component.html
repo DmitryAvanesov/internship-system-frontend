@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Редактировать сущность</ion-title>
+    <ion-buttons fill="outline" slot="end">
+      <ion-button (click)="close()">
+        Выйти
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="app-container form">
+    <ion-item>
+      <ion-label>Название: </ion-label>
+      <ion-input [formControl]="nameControl"></ion-input>
+    </ion-item>
+    <ion-button (click)="save()" [disabled]="nameControl.invalid">
+      Сохранить
+    </ion-button>
+  </div>
+</ion-content>

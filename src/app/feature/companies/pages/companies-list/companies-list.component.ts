@@ -5,6 +5,8 @@ import {
   selectCompaniesLoading,
 } from '@store/companies/companies.selectors';
 import { loadCompanies } from '@store/companies/companies.actions';
+import {selectUserRoles} from '@store/auth/auth.selectors';
+import {RolesEnum} from '@core/enums/roles.enum';
 
 @Component({
   selector: 'app-companies-list',
@@ -14,6 +16,9 @@ import { loadCompanies } from '@store/companies/companies.actions';
 export class CompaniesListComponent implements OnInit {
   companies$ = this.store.select(selectAllCompanies);
   companiesLoading$ = this.store.select(selectCompaniesLoading);
+
+  userRoles$ = this.store.select(selectUserRoles);
+  adminRole = RolesEnum.Admin;
 
   constructor(private store: Store) {}
 

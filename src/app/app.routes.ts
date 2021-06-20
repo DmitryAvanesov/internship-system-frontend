@@ -26,11 +26,19 @@ export const appRoutes: { [key: string]: Route } = {
   },
   studentAccount: {
     path: 'student-account',
-    data: {
-      title: 'ЛК студента',
-      roles: [RolesEnum.Student],
-      hidden: true,
-    },
+      data: {
+        title: 'ЛК студента',
+        roles: [RolesEnum.Student],
+        hidden: true,
+      },
     canLoad: [AuthGuard],
   },
+  admin: {
+    path: 'admin',
+    data: {
+      title: 'Админ-панель',
+      roles: [RolesEnum.Admin],
+      hidden: true,
+    }
+  }
 };

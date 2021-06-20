@@ -20,7 +20,8 @@
       "@students/*": ["src/app/feature/students/*"],
       "@company-account/*": ["src/app/feature/company-account/*"],
       "@student-account/*": ["src/app/feature/student-account/*"],
-      "@store/*": ["src/app/store/*"]
+      "@admin/*": ["src/app/feature/admin/*"],
+      "@store/*": ["src/app/store/*"],
     }
   },
   "angularCompilerOptions": {

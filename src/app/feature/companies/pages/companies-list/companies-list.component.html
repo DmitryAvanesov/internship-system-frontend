@@ -1,4 +1,10 @@
 <div class="app-container companies">
+  <ion-button
+    *ngIf="(userRoles$ | async) && (userRoles$ | async)[0] === adminRole"
+    [routerLink]="['/admin', 'company', 'new']"
+  >
+    Добавить компанию
+  </ion-button>
   <ng-template #loader>
     <app-loader></app-loader>
   </ng-template>
