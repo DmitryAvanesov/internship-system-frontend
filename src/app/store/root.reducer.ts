@@ -8,6 +8,8 @@ import { DictionariesState } from '@store/dictionaries/dictionaries.state';
 import { dictionariesReducer } from '@store/dictionaries/dictionaries.reducer';
 import { AuthState } from '@store/auth/auth.state';
 import { authReducer } from '@store/auth/auth.reducer';
+import { interviewsReducer } from '@store/interviews/interviews.reducer';
+import { InterviewsState } from '@store/interviews/interviews.state';
 
 export interface AppState {
   router: RouterReducerState;
@@ -15,6 +17,7 @@ export interface AppState {
   students: StudentsState;
   dictionaries: DictionariesState;
   auth: AuthState;
+  interviews: InterviewsState;
 }
 
 export const appReducers: ActionReducerMap<AppState> = {
@@ -23,4 +26,5 @@ export const appReducers: ActionReducerMap<AppState> = {
   students: studentsReducer,
   dictionaries: dictionariesReducer,
   auth: authReducer,
+  interviews: interviewsReducer,
 };

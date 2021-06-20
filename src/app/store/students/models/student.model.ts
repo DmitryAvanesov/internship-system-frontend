@@ -4,6 +4,7 @@ export interface StudentModel {
   id: string;
   userName: string;
   score: number;
+  interviews: string[];
   // normalizedUserName: string;
   // email: string;
   // normalizedEmail: string;
