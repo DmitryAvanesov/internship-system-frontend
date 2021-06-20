@@ -1,12 +1,6 @@
 <div>
   <h5 class="title">{{ title }}</h5>
-  <ion-chip color="primary">
-    <ion-label>Frontend</ion-label>
-  </ion-chip>
-  <ion-chip color="secondary">
-    <ion-label>Backend</ion-label>
-  </ion-chip>
-  <ion-chip color="warning">
-    <ion-label>Mobile</ion-label>
+  <ion-chip *ngFor="let chip of chipsList; let i = index" [color]="colors[i % colors.length]">
+    <ion-label>{{chip}}</ion-label>
   </ion-chip>
 </div>

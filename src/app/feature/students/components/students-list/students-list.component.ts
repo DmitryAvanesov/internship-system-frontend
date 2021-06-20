@@ -9,9 +9,9 @@ import { selectAllStudents } from 'src/app/store/students/students.selectors';
   styleUrls: ['./students-list.component.scss'],
 })
 export class StudentsListComponent implements OnInit {
-  @Input() students: StudentModel[];
+  @Input() students: (StudentModel & {specializationNames: string[]})[];
 
-  constructor(private store: Store) {}
+  constructor() {}
 
   ngOnInit() {}
 }

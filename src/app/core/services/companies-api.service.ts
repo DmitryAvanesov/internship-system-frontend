@@ -1,25 +1,23 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { CompanyModel } from '../../store/companies/models/company.model';
-import { delay } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CompaniesApiService {
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   getCompanies(): Observable<CompanyModel[]> {
-    return of(
-      new Array(7)
-        .fill({
-          userName: 'NTR',
-        })
-        .map((val, index) => ({
-          ...val,
-          id: index,
-          score: Math.round(Math.random() * 500) / 100,
-        }))
-    ).pipe(delay(1000));
+    return this.http.get<CompanyModel[]>(`${environment.api}/Companies`);
+  }
+
+  changeCompany(company: CompanyModel): Observable<CompanyModel> {
+    return this.http.put<CompanyModel>(`${environment.api}/Companies`, company);
+  }
+  createCompany(company: CompanyModel): Observable<CompanyModel> {
+    return this.http.post<CompanyModel>(`${environment.api}/Companies`, company);
   }
 }

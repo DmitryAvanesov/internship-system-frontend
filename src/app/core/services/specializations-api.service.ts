@@ -1,33 +1,38 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {DictionaryElementModel} from '@store/dictionaries/models/dictionary-element.model';
+import { DictionaryElementModel } from '@store/dictionaries/models/dictionary-element.model';
 import {Observable, of} from 'rxjs';
-import {delay} from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SpecializationsApiService {
-
-  constructor() { }
+  constructor(private http: HttpClient) {}
 
   getSpecializations(): Observable<DictionaryElementModel[]> {
-    return of(
-      new Array(7)
-        .fill({
-          name: (Math.round(Math.random() * 500) / 100).toString()
-        })
-        .map((val, index) => ({
-          ...val,
-          id: index.toString(),
-        }))
-    ).pipe(delay(1000));
+    return this.http.get<DictionaryElementModel[]>(
+      `${environment.api}/Specializations`
+    );
   }
 
-  changeTechnology(newEntity: any): Observable<DictionaryElementModel> {
-    return of(newEntity);
+  changeSpecialization(newEntity: any): Observable<DictionaryElementModel> {
+    return this.http.put<DictionaryElementModel>(
+      `${environment.api}/Specializations`,
+      {
+        ...newEntity,
+        users: [],
+      }
+    );
   }
 
-  createNewTechnology(newEntity: any): Observable<DictionaryElementModel> {
-    return of(newEntity);
+  createNewSpecialization(newEntity: any): Observable<DictionaryElementModel> {
+    return this.http.post<DictionaryElementModel>(
+      `${environment.api}/Specializations`,
+      {
+        ...newEntity,
+        users: [],
+      }
+    );
   }
 }

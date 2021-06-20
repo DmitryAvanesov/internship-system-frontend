@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {Store} from '@ngrx/store';
-import {loadDictionaries} from '@store/dictionaries/dictionaries.actions';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { loadDictionaries } from '@store/dictionaries/dictionaries.actions';
 
 @Component({
   selector: 'app-root',

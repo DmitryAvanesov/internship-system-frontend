@@ -1,5 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {StudentModel} from '@store/students/models/student.model';
+import { Component, Input, OnInit } from '@angular/core';
+import { StudentModel } from '@store/students/models/student.model';
 
 @Component({
   selector: 'app-priority-students-list-item',
@@ -8,8 +8,7 @@ import {StudentModel} from '@store/students/models/student.model';
 })
 export class PriorityStudentsListItemComponent implements OnInit {
   @Input() student: StudentModel;
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {}
-
 }

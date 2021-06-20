@@ -1,11 +1,13 @@
+import {saveSpecialization, saveTechnology, specializationsLoaded, technologiesLoaded} from '@store/dictionaries/dictionaries.actions';
+import {DictionariesState} from '@store/dictionaries/dictionaries.state';
 import {createEntityAdapter} from '@ngrx/entity';
 import {DictionaryElementModel} from '@store/dictionaries/models/dictionary-element.model';
-import {DictionariesState} from '@store/dictionaries/dictionaries.state';
 import {createReducer, on} from '@ngrx/store';
-import {saveSpecialization, saveTechnology, specializationsLoaded, technologiesLoaded} from '@store/dictionaries/dictionaries.actions';
 
-export const technologiesAdapter = createEntityAdapter<DictionaryElementModel>();
-export const specializationsAdapter = createEntityAdapter<DictionaryElementModel>();
+export const technologiesAdapter =
+  createEntityAdapter<DictionaryElementModel>();
+export const specializationsAdapter =
+  createEntityAdapter<DictionaryElementModel>();
 
 const initialState: DictionariesState = {
   technologies: technologiesAdapter.getInitialState(),

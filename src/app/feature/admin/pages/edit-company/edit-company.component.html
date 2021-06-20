@@ -1,0 +1,63 @@
+<div [formGroup]="form" class="app-container company-account">
+  <ion-item class="company-account__item">
+    <ion-input formControlName="userName" placeholder="Название компании"></ion-input>
+  </ion-item>
+  <ion-item class="company-account__item">
+    <ion-textarea formControlName="info" placeholder="Описание компании"></ion-textarea>
+  </ion-item>
+  <ion-item class="company-account__item">
+    <ion-input formControlName="email" placeholder="Email для связи"></ion-input>
+  </ion-item>
+  <ion-card class="company-account__item addition-select">
+    <h3>Специализации</h3>
+    <ion-button size="small">Добавить</ion-button>
+    <div class="addition-select__row">
+      <ion-select interface="alert" placeholder="Выберите специализацию">
+        <ion-select-option value="123">Frontend</ion-select-option>
+        <ion-select-option value="123">Backend (C#)</ion-select-option>
+        <ion-select-option value="123">Backend (Java)</ion-select-option>
+      </ion-select>
+      <ion-button fill="clear" shape="round">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </div>
+    <div class="addition-select__row">
+      <ion-select interface="alert" placeholder="Выберите специализацию">
+        <ion-select-option value="123">Frontend</ion-select-option>
+        <ion-select-option value="123">Backend (C#)</ion-select-option>
+        <ion-select-option value="123">Backend (Java)</ion-select-option>
+      </ion-select>
+      <ion-button fill="clear" shape="round">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-card>
+
+  <ion-card class="company-account__item addition-select">
+    <h3>Приоритеты компании</h3>
+    <ion-button size="small">Добавить</ion-button>
+    <ion-select interface="alert" placeholder="Специализация">
+      <ion-select-option value="123">Frontend</ion-select-option>
+      <ion-select-option value="123">Backend (C#)</ion-select-option>
+      <ion-select-option value="123">Backend (Java)</ion-select-option>
+    </ion-select>
+    <div class="addition-select__row">
+      <ion-select interface="alert" placeholder="Выберите студента">
+        <ion-select-option value="123">Иван Меньщиков</ion-select-option>
+        <ion-select-option value="123">Дмитрий Аванесов</ion-select-option>
+        <ion-select-option value="123">Герман Одилов</ion-select-option>
+      </ion-select>
+      <ion-button fill="clear" shape="round">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-card>
+  <div style="display: flex; justify-content: flex-end;">
+    <ion-button
+      [disabled]="form.invalid"
+      (click)="save()"
+      class="save-button"
+      color="primary"
+    >Сохранить</ion-button>
+  </div>
+</div>

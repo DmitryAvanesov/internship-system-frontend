@@ -1,19 +1,18 @@
-import {Injectable} from '@angular/core';
-import {Actions, createEffect, ofType} from '@ngrx/effects';
-import {SpecializationsApiService} from '@core/services/specializations-api.service';
 import {TechnologiesApiService} from '@core/services/technologies-api.service';
+import {Injectable} from '@angular/core';
 import {
   createOrSaveSpecialization,
   createOrSaveTechnology,
-  loadDictionaries, saveSpecialization, saveTechnology,
-  specializationsLoaded,
-  technologiesLoaded
+  loadDictionaries,
+  saveSpecialization, saveTechnology, specializationsLoaded, technologiesLoaded
 } from '@store/dictionaries/dictionaries.actions';
-import {combineLatest} from 'rxjs';
-import {map, mergeMap, switchMap, tap, withLatestFrom} from 'rxjs/operators';
-import {DictionaryElementModel} from '@store/dictionaries/models/dictionary-element.model';
+import {map, mergeMap, switchMap, withLatestFrom} from 'rxjs/operators';
+import {Actions, createEffect, ofType} from '@ngrx/effects';
 import {Action, Store} from '@ngrx/store';
 import {selectAllSpecializationEntities, selectAllTechnologyEntities} from '@store/dictionaries/dictionaries.selectors';
+import {DictionaryElementModel} from '@store/dictionaries/models/dictionary-element.model';
+import {SpecializationsApiService} from '@core/services/specializations-api.service';
+import {combineLatest} from 'rxjs';
 
 @Injectable()
 export class DictionariesEffects {
@@ -28,8 +27,8 @@ export class DictionariesEffects {
       ),
       mergeMap((data) => {
         return [
-          technologiesLoaded({technologies: data[0]}),
-          specializationsLoaded({specializations: data[1]}),
+          technologiesLoaded({ technologies: data[1] }),
+          specializationsLoaded({ specializations: data[0] }),
         ];
       })
     )
@@ -64,8 +63,8 @@ export class DictionariesEffects {
       }),
       switchMap(({action, isCreate}) => {
         return isCreate
-          ? this.specializationsApiService.changeTechnology(action.newEntity)
-          : this.specializationsApiService.createNewTechnology(action.newEntity);
+          ? this.specializationsApiService.changeSpecialization(action.newEntity)
+          : this.specializationsApiService.createNewSpecialization(action.newEntity);
       }),
       map((specialization) => {
         return saveSpecialization({specialization});
@@ -77,6 +76,6 @@ export class DictionariesEffects {
     private store: Store,
     private actions$: Actions,
     private specializationsApiService: SpecializationsApiService,
-    private technologiesApiService: TechnologiesApiService,
+    private technologiesApiService: TechnologiesApiService
   ) {}
 }

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import {applicationColors} from '@core/consts/applicationColors';
 
 @Component({
   selector: 'app-student-chips',
@@ -7,6 +8,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class StudentChipsComponent implements OnInit {
   @Input() title: string;
+  @Input() chipsList: string[];
+
+  colors = applicationColors;
 
   constructor() {}
 

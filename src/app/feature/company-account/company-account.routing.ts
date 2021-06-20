@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: '',
     component: CompanyAccountComponent,
-  }
+  },
 ];
 
 export const CompanyAccountRouting = RouterModule.forChild(routes);

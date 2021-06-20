@@ -1,34 +1,33 @@
 import { Injectable } from '@angular/core';
-import {Observable, of} from 'rxjs';
-import {DictionaryElementModel} from '@store/dictionaries/models/dictionary-element.model';
-import {delay} from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { DictionaryElementModel } from '@store/dictionaries/models/dictionary-element.model';
+import { delay } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TechnologiesApiService {
-
-  constructor() {
-  }
+  constructor(private http: HttpClient) {}
 
   getTechnologies(): Observable<DictionaryElementModel[]> {
-    return of(
-      new Array(7)
-        .fill({
-          name: (Math.round(Math.random() * 500) / 100).toString()
-        })
-        .map((val, index) => ({
-          ...val,
-          id: index.toString(),
-        }))
-    ).pipe(delay(1000));
+    return this.http.get<DictionaryElementModel[]>(
+      `${environment.api}/Technologies`
+    );
   }
 
   createNewTechnology(newTechnology: DictionaryElementModel): Observable<DictionaryElementModel> {
-    return of(newTechnology);
+    return this.http.post<DictionaryElementModel>(`${environment.api}/Technologies`, {
+      ...newTechnology,
+      users: [],
+    });
   }
 
   changeTechnology(technology: DictionaryElementModel): Observable<DictionaryElementModel> {
-    return of(technology);
+    return this.http.put<DictionaryElementModel>(`${environment.api}/Technologies`, {
+      ...technology,
+      users: [],
+    });
   }
 }

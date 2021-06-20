@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {selectAllSpecializations, selectAllTechnologies} from '@store/dictionaries/dictionaries.selectors';
+import {selectAllSpecializations} from '@store/dictionaries/dictionaries.selectors';
 import {Store} from '@ngrx/store';
 import {ModalController} from '@ionic/angular';
 import {DictionaryElementModel} from '@store/dictionaries/models/dictionary-element.model';
@@ -9,7 +9,7 @@ import {switchMap} from 'rxjs/operators';
 import {of} from 'rxjs';
 import {DictionaryFormResult} from '@admin/interfaces/dictionary-form-result.interface';
 import {DialogCloseReasons} from '@core/enums/dialog-close-reasons.enum';
-import {createOrSaveSpecialization, createOrSaveTechnology} from '@store/dictionaries/dictionaries.actions';
+import {createOrSaveSpecialization} from '@store/dictionaries/dictionaries.actions';
 
 @Component({
   selector: 'app-specializations-list',

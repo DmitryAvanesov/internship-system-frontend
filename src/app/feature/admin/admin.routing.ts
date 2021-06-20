@@ -4,6 +4,11 @@ import {TechnologiesListComponent} from '@admin/pages/technologies-list/technolo
 import {SpecializationsListComponent} from '@admin/pages/specializations-list/specializations-list.component';
 import {CompanyAccountComponent} from '@shared/components/company-account/company-account.component';
 import {StudentAccountComponent} from '@shared/components/student-account/student-account.component';
+import {AdminEntityEnum} from '@core/enums/admin-entity.enum';
+import {CreateStudentComponent} from '@admin/pages/create-student/create-student.component';
+import {EditStudentComponent} from '@admin/pages/edit-student/edit-student.component';
+import {CreateCompanyComponent} from '@admin/pages/create-company/create-company.component';
+import {EditCompanyComponent} from '@admin/pages/edit-company/edit-company.component';
 
 const routes: Routes = [
   {
@@ -22,26 +27,26 @@ const routes: Routes = [
     path: 'company',
     children: [
       {
-        path: ':id',
-        component: CompanyAccountComponent,
+        path: 'new',
+        component: CreateCompanyComponent,
       },
       {
-        path: 'new',
-        component: CompanyAccountComponent,
-      }
+        path: ':id',
+        component: EditCompanyComponent,
+      },
     ]
   },
   {
     path: 'student',
     children: [
       {
-        path: ':id',
-        component: StudentAccountComponent,
+        path: 'new',
+        component: CreateStudentComponent,
       },
       {
-        path: 'new',
-        component: StudentAccountComponent,
-      }
+        path: ':id',
+        component: EditStudentComponent,
+      },
     ]
   }
 ];

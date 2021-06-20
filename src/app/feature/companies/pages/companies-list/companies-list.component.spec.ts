@@ -7,16 +7,18 @@ describe('CompaniesListComponent', () => {
   let component: CompaniesListComponent;
   let fixture: ComponentFixture<CompaniesListComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ CompaniesListComponent ],
-      imports: [IonicModule.forRoot()]
-    }).compileComponents();
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [CompaniesListComponent],
+        imports: [IonicModule.forRoot()],
+      }).compileComponents();
 
-    fixture = TestBed.createComponent(CompaniesListComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  }));
+      fixture = TestBed.createComponent(CompaniesListComponent);
+      component = fixture.componentInstance;
+      fixture.detectChanges();
+    })
+  );
 
   it('should create', () => {
     expect(component).toBeTruthy();
