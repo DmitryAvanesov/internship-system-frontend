@@ -1,13 +1,28 @@
 <div class="app-container company">
-  <h1>{{(company$ | async)?.userName}}</h1>
-  <ion-button
-    *ngIf="(userRoles$ | async) && (userRoles$ | async)[0] === adminRole"
-    [routerLink]="['/admin', 'company', (company$ | async)?.id]"
-  >Редактировать</ion-button>
   <ion-grid>
     <ion-row class="company__header">
-      <h1>Company Name</h1>
+      <div class="company__title-block">
+        <h1 class="company__title">{{ (company$ | async)?.userName }}</h1>
+        <ion-button
+          *ngIf="(userRoles$ | async) && (userRoles$ | async)[0] === adminRole"
+          [routerLink]="['/admin', 'company', (company$ | async)?.id]"
+          >Редактировать</ion-button
+        >
+      </div>
       <div class="company__interview">
+        <ion-select
+          class="company__select"
+          interface="alert"
+          placeholder="Выберите позицию"
+          (ionChange)="handlePositionChange($event)"
+        >
+          <ion-select-option
+            *ngFor="let position of positions"
+            [value]="position.id"
+          >
+            {{ position.name }}
+          </ion-select-option>
+        </ion-select>
         <ion-button
           [disabled]="!positionId || (interview$ | async)"
           (click)="handleInterviewButtonClick()"
@@ -20,18 +35,6 @@
               : "Записаться на собеседование"
           }}
         </ion-button>
-        <ion-select
-          interface="alert"
-          placeholder="Выберите позицию"
-          (ionChange)="handlePositionChange($event)"
-        >
-          <ion-select-option
-            *ngFor="let position of positions"
-            [value]="position.id"
-          >
-            {{ position.name }}
-          </ion-select-option>
-        </ion-select>
       </div>
     </ion-row>
     <ion-row>
@@ -86,7 +89,7 @@
           </ion-card-header>
 
           <ion-card-content>
-            {{(company$ | async)?.info}}
+            {{ (company$ | async)?.info }}
           </ion-card-content>
         </ion-card>
       </ion-col>

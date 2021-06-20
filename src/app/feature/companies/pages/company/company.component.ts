@@ -1,33 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { InterviewsApiService } from '@core/services/interviews-api.service';
 import { PositionsApiService } from '@core/services/positions-api.service';
-import { Store } from '@ngrx/store';
-import { loadCompanies } from '@store/companies/companies.actions';
-import { selectCompany } from '@store/companies/companies.selectors';
-import { CompanyModel } from '@store/companies/models/company.model';
-import {
-  interviewAdded,
-  loadInterviews,
-} from '@store/interviews/interviews.actions';
-import {
-  selectAllInterviews,
-  selectInterviewByStudentAndPosition,
-} from '@store/interviews/interviews.selectors';
-import { InterviewModel } from '@store/interviews/models/interview.model';
+import { interviewAdded } from '@store/interviews/interviews.actions';
+import { selectInterviewByStudentAndPosition } from '@store/interviews/interviews.selectors';
 import { PositionModel } from '@store/positions/models/position.model';
-import { selectRouteParam } from '@store/router/router.selectors';
 import { StudentModel } from '@store/students/models/student.model';
 import { Observable, of } from 'rxjs';
 import { skipWhile } from 'rxjs/operators';
-import {Store} from '@ngrx/store';
-import {loadCompanies} from '@store/companies/companies.actions';
-import {loadStudents} from '@store/students/students.actions';
-import {CompanyModel} from '@store/companies/models/company.model';
-import {selectRouteParam} from '@store/router/router.selectors';
-import {selectAllCompanies, selectCompany} from '@store/companies/companies.selectors';
-import {selectStudent} from '@store/students/students.selectors';
-import {selectUserRoles} from '@store/auth/auth.selectors';
-import {RolesEnum} from '@core/enums/roles.enum';
+import { Store } from '@ngrx/store';
+import { loadCompanies } from '@store/companies/companies.actions';
+import { loadStudents } from '@store/students/students.actions';
+import { CompanyModel } from '@store/companies/models/company.model';
+import { selectRouteParam } from '@store/router/router.selectors';
+import { selectCompany } from '@store/companies/companies.selectors';
+import { selectUserRoles } from '@store/auth/auth.selectors';
+import { RolesEnum } from '@core/enums/roles.enum';
 
 export interface MockSpecialization {
   id: string;
@@ -89,16 +76,6 @@ export class CompanyComponent implements OnInit {
       interviews: [],
     },
   ];
-  constructor(private store: Store) {}
-
-  ngOnInit() {
-    this.store.dispatch(loadStudents());
-    this.store.dispatch(loadCompanies());
-
-    this.routeId$.subscribe((id) => {
-      this.company$ = this.store.select(selectCompany, { id });
-    });
-  }
 
   constructor(
     private store: Store,
@@ -108,6 +85,7 @@ export class CompanyComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(loadCompanies());
+    this.store.dispatch(loadStudents());
 
     this.routeId$.subscribe((id) => {
       this.company$ = this.store.select(selectCompany, { id });

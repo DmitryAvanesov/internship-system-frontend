@@ -2,11 +2,26 @@
   &__header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: flex-end;
     margin-bottom: 24px;
   }
 
+  &__title-block {
+    margin-right: 36px;
+  }
+
+  &__title {
+    margin-bottom: 8px;
+  }
+
   &__interview {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  &__select {
+    width: 200px;
   }
 
   .priority {
