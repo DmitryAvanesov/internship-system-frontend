@@ -2,9 +2,32 @@
   <ion-grid>
     <ion-row class="company__header">
       <h1>Company Name</h1>
-      <ion-button>
-        {{ (interviews$ | async) ? "Записаться на собеседование" : "Записан" }}
-      </ion-button>
+      <div class="company__interview">
+        <ion-button
+          [disabled]="!positionId || (interview$ | async)"
+          (click)="handleInterviewButtonClick()"
+        >
+          {{
+            (interview$ | async)
+              ? (interview$ | async).date
+                ? "Собеседование " + (interview$ | async).date
+                : "Заявка отправлена"
+              : "Записаться на собеседование"
+          }}
+        </ion-button>
+        <ion-select
+          interface="alert"
+          placeholder="Выберите позицию"
+          (ionChange)="handlePositionChange($event)"
+        >
+          <ion-select-option
+            *ngFor="let position of positions"
+            [value]="position.id"
+          >
+            {{ position.name }}
+          </ion-select-option>
+        </ion-select>
+      </div>
     </ion-row>
     <ion-row>
       <ion-col size-lg="8" size-xs="12">

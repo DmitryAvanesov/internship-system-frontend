@@ -14,3 +14,8 @@ export const selectCompaniesLoading = createSelector(
   selectCompanies,
   (state) => state.companiesLoading
 );
+
+export const selectCompany = createSelector(
+  selectCompanies,
+  (state, props) => state.entities[props.id]
+);
