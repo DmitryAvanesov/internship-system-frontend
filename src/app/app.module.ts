@@ -13,7 +13,8 @@ import { StoreModule } from '@ngrx/store';
 import { appReducers } from './store/root.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
-import {DictionariesEffects} from '@store/dictionaries/dictionaries.effects';
+import { DictionariesEffects } from '@store/dictionaries/dictionaries.effects';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, LayoutComponent],
@@ -22,6 +23,7 @@ import {DictionariesEffects} from '@store/dictionaries/dictionaries.effects';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    HttpClientModule,
     EffectsModule.forRoot([DictionariesEffects]),
     StoreModule.forRoot(appReducers),
     StoreRouterConnectingModule.forRoot(),

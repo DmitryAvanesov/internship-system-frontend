@@ -1,25 +1,17 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 import { StudentModel } from 'src/app/store/students/models/student.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StudentsApiService {
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   getStudents(): Observable<StudentModel[]> {
-    return of(
-      new Array(25)
-        .fill({
-          userName: 'Иван Павлов',
-        })
-        .map((val, index) => ({
-          ...val,
-          id: index,
-          score: Math.round(Math.random() * 500) / 100,
-        }))
-    ).pipe(delay(1000));
+    return this.http.get<StudentModel[]>(`${environment.api}/Students`);
   }
 }

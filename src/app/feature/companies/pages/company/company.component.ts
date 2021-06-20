@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {StudentModel} from '@store/students/models/student.model';
+import { StudentModel } from '@store/students/models/student.model';
 
 interface MockSpecialization {
   id: string;
@@ -26,24 +26,25 @@ export class CompanyComponent implements OnInit {
     },
   ];
   students: StudentModel[] = [
-    {id: '1', userName: 'Ivan', score: Math.round(Math.random() * 500) / 100},
-    {id: '2', userName: 'Ivan', score: Math.round(Math.random() * 500) / 100},
-    {id: '3', userName: 'Ivan', score: Math.round(Math.random() * 500) / 100}
+    { id: '1', userName: 'Ivan', score: Math.round(Math.random() * 500) / 100 },
+    { id: '2', userName: 'Ivan', score: Math.round(Math.random() * 500) / 100 },
+    { id: '3', userName: 'Ivan', score: Math.round(Math.random() * 500) / 100 },
   ];
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {}
 
   toggleSpecialization(id: string) {
-    const specializationIndex = this.specializations.findIndex((el) => el.id === id);
+    const specializationIndex = this.specializations.findIndex(
+      (el) => el.id === id
+    );
     if (specializationIndex !== -1) {
       const newSpecializations = [...this.specializations];
       newSpecializations[specializationIndex] = {
         ...newSpecializations[specializationIndex],
-        isOpen: !newSpecializations[specializationIndex].isOpen
+        isOpen: !newSpecializations[specializationIndex].isOpen,
       };
       this.specializations = newSpecializations;
     }
   }
-
 }
