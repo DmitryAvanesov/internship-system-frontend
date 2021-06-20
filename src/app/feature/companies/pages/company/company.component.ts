@@ -12,7 +12,7 @@ interface MockSpecialization {
   templateUrl: './company.component.html',
   styleUrls: ['./company.component.scss'],
 })
-export class CompanyComponent implements OnInit {
+export class CompanyComponent {
   specializations: MockSpecialization[] = [
     {
       id: '1',
@@ -30,9 +30,6 @@ export class CompanyComponent implements OnInit {
     { id: '2', userName: 'Ivan', score: Math.round(Math.random() * 500) / 100 },
     { id: '3', userName: 'Ivan', score: Math.round(Math.random() * 500) / 100 },
   ];
-  constructor() {}
-
-  ngOnInit() {}
 
   toggleSpecialization(id: string) {
     const specializationIndex = this.specializations.findIndex(

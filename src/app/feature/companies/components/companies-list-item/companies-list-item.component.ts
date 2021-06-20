@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CompanyModel } from '../../../../store/companies/models/company.model';
 
 @Component({
@@ -6,9 +6,6 @@ import { CompanyModel } from '../../../../store/companies/models/company.model';
   templateUrl: './companies-list-item.component.html',
   styleUrls: ['./companies-list-item.component.scss'],
 })
-export class CompaniesListItemComponent implements OnInit {
+export class CompaniesListItemComponent {
   @Input() company: CompanyModel;
-  constructor() {}
-
-  ngOnInit() {}
 }
