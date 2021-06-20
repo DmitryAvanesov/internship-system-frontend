@@ -44,7 +44,6 @@ export class CompanyComponent implements OnInit {
   positions: PositionModel[];
   positionId: string = null;
   interview$ = of(undefined);
-
   specializations: MockSpecialization[] = [
     {
       id: '1',

@@ -5,10 +5,6 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './student-chips.component.html',
   styleUrls: ['./student-chips.component.scss'],
 })
-export class StudentChipsComponent implements OnInit {
+export class StudentChipsComponent {
   @Input() title: string;
-
-  constructor() {}
-
-  ngOnInit() {}
 }
