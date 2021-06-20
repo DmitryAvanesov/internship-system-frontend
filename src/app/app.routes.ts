@@ -1,36 +1,36 @@
-import { Route, UrlSegment, UrlSegmentGroup } from '@angular/router';
-import { RolesEnum } from '@core/enums/roles.enum';
-import { AuthGuard } from '@core/guards/auth.guard';
+import { Route, UrlSegment, UrlSegmentGroup } from '@angular/router'
+import { RolesEnum } from '@core/enums/roles.enum'
+import { AuthGuard } from '@core/guards/auth.guard'
 
 export const appRoutes: { [key: string]: Route } = {
-  companies: {
-    path: 'companies',
-    data: {
-      title: 'Компании',
+    companies: {
+        path: 'companies',
+        data: {
+            title: 'Компании',
+        },
     },
-  },
-  students: {
-    path: 'students',
-    data: {
-      title: 'Студенты',
+    students: {
+        path: 'students',
+        data: {
+            title: 'Студенты',
+        },
     },
-  },
-  companyAccount: {
-    path: 'company-account',
-    data: {
-      title: 'ЛК компании',
-      roles: [RolesEnum.Company],
-      hidden: true,
+    companyAccount: {
+        path: 'company-account',
+        data: {
+            title: 'ЛК компании',
+            roles: [RolesEnum.Company],
+            hidden: true,
+        },
+        canLoad: [AuthGuard],
     },
-    canLoad: [AuthGuard],
-  },
-  studentAccount: {
-    path: 'student-account',
-    data: {
-      title: 'ЛК студента',
-      roles: [RolesEnum.Student],
-      hidden: true,
+    studentAccount: {
+        path: 'student-account',
+        data: {
+            title: 'ЛК студента',
+            roles: [RolesEnum.Student],
+            hidden: true,
+        },
+        canLoad: [AuthGuard],
     },
-    canLoad: [AuthGuard],
-  },
-};
+}

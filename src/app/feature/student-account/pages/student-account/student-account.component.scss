@@ -1,39 +1,39 @@
 .student-account {
-  width: 75%;
+    width: 75%;
 
-  & > * {
-    margin-bottom: 32px;
-  }
-
-  .student-account-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    .student-header {
-      display: flex;
-      align-items: center;
-
-      .avatar {
-        margin-right: 16px;
-        min-width: 64px;
-      }
+    & > * {
+        margin-bottom: 32px;
     }
-  }
 
-  .inputs-block {
-    margin-bottom: 16px;
-  }
+    .student-account-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-  .company-select {
-    &__row {
-      display: flex;
-      justify-content: space-between;
+        .student-header {
+            display: flex;
+            align-items: center;
+
+            .avatar {
+                margin-right: 16px;
+                min-width: 64px;
+            }
+        }
     }
-  }
 
-  .buttons-block {
-    display: flex;
-    justify-content: flex-end;
-  }
+    .inputs-block {
+        margin-bottom: 16px;
+    }
+
+    .company-select {
+        &__row {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    .buttons-block {
+        display: flex;
+        justify-content: flex-end;
+    }
 }

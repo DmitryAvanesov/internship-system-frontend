@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 
 @Component({
-  selector: 'app-student-score',
-  templateUrl: './student-score.component.html',
-  styleUrls: ['./student-score.component.scss'],
+    selector: 'app-student-score',
+    templateUrl: './student-score.component.html',
+    styleUrls: ['./student-score.component.scss'],
 })
 export class StudentScoreComponent {}

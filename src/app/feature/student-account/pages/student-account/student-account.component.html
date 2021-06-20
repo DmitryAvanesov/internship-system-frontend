@@ -1,71 +1,93 @@
 <div class="app-container student-account">
-  <!-- <ng-template #loader>
+    <!-- <ng-template #loader>
     <app-loader></app-loader>
   </ng-template> -->
-  <!-- <div *ngIf="student$ | async; else loader"></div> -->
-  <div class="student-account-header">
-    <div class="student-header">
-      <ion-avatar class="avatar" slot="start">
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDmXKGtyS5klcNlruWA5SEDx4gr0YckGnHkA&usqp=CAU"
-        />
-      </ion-avatar>
-      <div class="info">
-        <h1 class="user-name">Иван Павлов</h1>
-      </div>
+    <!-- <div *ngIf="student$ | async; else loader"></div> -->
+    <div class="student-account-header">
+        <div class="student-header">
+            <ion-avatar class="avatar" slot="start">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDmXKGtyS5klcNlruWA5SEDx4gr0YckGnHkA&usqp=CAU"
+                />
+            </ion-avatar>
+            <div class="info">
+                <h1 class="user-name">Иван Павлов</h1>
+            </div>
+        </div>
+        <ion-button color="primary">Записаться на собеседование</ion-button>
     </div>
-    <ion-button color="primary">Записаться на собеседование</ion-button>
-  </div>
-  <ion-card class="inputs-block">
-    <ion-card-content>
-      <ion-input placeholder="Ссылка на портфолио"></ion-input>
-      <ion-item>
-        <ion-label>Специализации</ion-label>
-        <ion-select multiple [value]="['Frontend', 'Mobile']">
-          <ion-select-option value="Frontend">Frontend</ion-select-option>
-          <ion-select-option value="Backend">Backend</ion-select-option>
-          <ion-select-option value="Mobile">Mobile</ion-select-option>
-        </ion-select>
-      </ion-item>
-      <ion-item>
-        <ion-label>Технологии</ion-label>
-        <ion-select multiple [value]="['Javascipt', 'MongoDB']">
-          <ion-select-option value="Javascipt">Javascipt</ion-select-option>
-          <ion-select-option value="C#">C#</ion-select-option>
-          <ion-select-option value="MongoDB">MongoDB</ion-select-option>
-          <ion-select-option value="TS">TS</ion-select-option>
-          <ion-select-option value="Flutter">Flutter</ion-select-option>
-        </ion-select>
-      </ion-item>
-    </ion-card-content>
-  </ion-card>
-  <ion-card class="priorities-block">
-    <ion-card-header><h3>Приоритеты студента</h3></ion-card-header>
-    <ion-card-content class="company-account__item company-select">
-      <ion-button size="small">Добавить</ion-button>
-      <div class="company-select__row">
-        <ion-select interface="alert" placeholder="Добавьте компанию">
-          <ion-select-option value="123">Иван Меньщиков</ion-select-option>
-          <ion-select-option value="123">Дмитрий Аванесов</ion-select-option>
-          <ion-select-option value="123">Герман Одилов</ion-select-option>
-        </ion-select>
-        <ion-button fill="clear" shape="round">
-          <ion-icon name="close-outline"></ion-icon>
-        </ion-button>
-      </div>
-      <div class="company-select__row">
-        <ion-select interface="alert" placeholder="Добавьте компанию">
-          <ion-select-option value="123">Иван Меньщиков</ion-select-option>
-          <ion-select-option value="123">Дмитрий Аванесов</ion-select-option>
-          <ion-select-option value="123">Герман Одилов</ion-select-option>
-        </ion-select>
-        <ion-button fill="clear" shape="round">
-          <ion-icon name="close-outline"></ion-icon>
-        </ion-button>
-      </div>
-    </ion-card-content>
-  </ion-card>
-  <div class="buttons-block">
-    <ion-button class="save-button" color="primary">Сохранить</ion-button>
-  </div>
+    <ion-card class="inputs-block">
+        <ion-card-content>
+            <ion-input placeholder="Ссылка на портфолио"></ion-input>
+            <ion-item>
+                <ion-label>Специализации</ion-label>
+                <ion-select multiple [value]="['Frontend', 'Mobile']">
+                    <ion-select-option value="Frontend"
+                        >Frontend</ion-select-option
+                    >
+                    <ion-select-option value="Backend"
+                        >Backend</ion-select-option
+                    >
+                    <ion-select-option value="Mobile">Mobile</ion-select-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>Технологии</ion-label>
+                <ion-select multiple [value]="['Javascipt', 'MongoDB']">
+                    <ion-select-option value="Javascipt"
+                        >Javascipt</ion-select-option
+                    >
+                    <ion-select-option value="C#">C#</ion-select-option>
+                    <ion-select-option value="MongoDB"
+                        >MongoDB</ion-select-option
+                    >
+                    <ion-select-option value="TS">TS</ion-select-option>
+                    <ion-select-option value="Flutter"
+                        >Flutter</ion-select-option
+                    >
+                </ion-select>
+            </ion-item>
+        </ion-card-content>
+    </ion-card>
+    <ion-card class="priorities-block">
+        <ion-card-header><h3>Приоритеты студента</h3></ion-card-header>
+        <ion-card-content class="company-account__item company-select">
+            <ion-button size="small">Добавить</ion-button>
+            <div class="company-select__row">
+                <ion-select interface="alert" placeholder="Добавьте компанию">
+                    <ion-select-option value="123"
+                        >Иван Меньщиков</ion-select-option
+                    >
+                    <ion-select-option value="123"
+                        >Дмитрий Аванесов</ion-select-option
+                    >
+                    <ion-select-option value="123"
+                        >Герман Одилов</ion-select-option
+                    >
+                </ion-select>
+                <ion-button fill="clear" shape="round">
+                    <ion-icon name="close-outline"></ion-icon>
+                </ion-button>
+            </div>
+            <div class="company-select__row">
+                <ion-select interface="alert" placeholder="Добавьте компанию">
+                    <ion-select-option value="123"
+                        >Иван Меньщиков</ion-select-option
+                    >
+                    <ion-select-option value="123"
+                        >Дмитрий Аванесов</ion-select-option
+                    >
+                    <ion-select-option value="123"
+                        >Герман Одилов</ion-select-option
+                    >
+                </ion-select>
+                <ion-button fill="clear" shape="round">
+                    <ion-icon name="close-outline"></ion-icon>
+                </ion-button>
+            </div>
+        </ion-card-content>
+    </ion-card>
+    <div class="buttons-block">
+        <ion-button class="save-button" color="primary">Сохранить</ion-button>
+    </div>
 </div>

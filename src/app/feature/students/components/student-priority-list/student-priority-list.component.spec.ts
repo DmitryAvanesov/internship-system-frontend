@@ -1,26 +1,26 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing'
+import { IonicModule } from '@ionic/angular'
 
-import { StudentPriorityListComponent } from './student-priority-list.component';
+import { StudentPriorityListComponent } from './student-priority-list.component'
 
 describe('StudentPriorityListComponent', () => {
-  let component: StudentPriorityListComponent;
-  let fixture: ComponentFixture<StudentPriorityListComponent>;
+    let component: StudentPriorityListComponent
+    let fixture: ComponentFixture<StudentPriorityListComponent>
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [StudentPriorityListComponent],
-        imports: [IonicModule.forRoot()],
-      }).compileComponents();
+    beforeEach(
+        waitForAsync(() => {
+            TestBed.configureTestingModule({
+                declarations: [StudentPriorityListComponent],
+                imports: [IonicModule.forRoot()],
+            }).compileComponents()
 
-      fixture = TestBed.createComponent(StudentPriorityListComponent);
-      component = fixture.componentInstance;
-      fixture.detectChanges();
+            fixture = TestBed.createComponent(StudentPriorityListComponent)
+            component = fixture.componentInstance
+            fixture.detectChanges()
+        })
+    )
+
+    it('should create', () => {
+        expect(component).toBeTruthy()
     })
-  );
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+})

@@ -1,4 +1,4 @@
 export interface CompanyModel {
-  id: string;
-  userName: string;
+    id: string
+    userName: string
 }

@@ -1,43 +1,43 @@
 .list-item {
-  &:hover {
-    cursor: pointer;
-    --background: #dce9ff;
-    --border-radius: 3px;
-  }
-
-  .label {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    .info {
-      display: flex;
-
-      .user-name {
-        margin-right: 20px;
-      }
-
-      .specializations {
-        .specialization {
-          margin-right: 10px;
-        }
-      }
-
-      @media screen and (max-width: 850px) {
-        & {
-          flex-direction: column;
-
-          .user-name {
-            margin-bottom: 5px;
-          }
-
-          .specializations {
-            .specialization {
-              margin-right: 5px;
-            }
-          }
-        }
-      }
+    &:hover {
+        cursor: pointer;
+        --background: #dce9ff;
+        --border-radius: 3px;
     }
-  }
+
+    .label {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .info {
+            display: flex;
+
+            .user-name {
+                margin-right: 20px;
+            }
+
+            .specializations {
+                .specialization {
+                    margin-right: 10px;
+                }
+            }
+
+            @media screen and (max-width: 850px) {
+                & {
+                    flex-direction: column;
+
+                    .user-name {
+                        margin-bottom: 5px;
+                    }
+
+                    .specializations {
+                        .specialization {
+                            margin-right: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

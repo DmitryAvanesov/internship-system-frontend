@@ -1,9 +1,9 @@
 <div class="app-container students">
-  <ng-template #loader>
-    <app-loader></app-loader>
-  </ng-template>
-  <div *ngIf="!(studentsLoading$ | async); else loader">
-    <app-students-search></app-students-search>
-    <app-students-list [students]="students$ | async"></app-students-list>
-  </div>
+    <ng-template #loader>
+        <app-loader></app-loader>
+    </ng-template>
+    <div *ngIf="!(studentsLoading$ | async); else loader">
+        <app-students-search></app-students-search>
+        <app-students-list [students]="students$ | async"></app-students-list>
+    </div>
 </div>

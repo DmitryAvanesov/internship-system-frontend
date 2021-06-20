@@ -1,13 +1,13 @@
 .toolbar {
-  display: flex;
-  justify-content: space-between;
-  padding-left: 20px;
-  padding-right: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
 
-  &__user-icon {
-    font-size: 25px;
-    font-weight: 500;
-    color: #3b3b3b;
-    cursor: pointer;
-  }
+    &__user-icon {
+        font-size: 25px;
+        font-weight: 500;
+        color: #3b3b3b;
+        cursor: pointer;
+    }
 }

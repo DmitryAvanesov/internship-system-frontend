@@ -1,16 +1,16 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { AppState } from '../root.reducer';
-import { CompaniesState } from './companies.state';
-import { companiesAdapter } from './companies.reducer';
+import { createFeatureSelector, createSelector } from '@ngrx/store'
+import { AppState } from '../root.reducer'
+import { CompaniesState } from './companies.state'
+import { companiesAdapter } from './companies.reducer'
 
 const selectCompanies = createFeatureSelector<AppState, CompaniesState>(
-  'companies'
-);
+    'companies'
+)
 
 export const { selectAll: selectAllCompanies } =
-  companiesAdapter.getSelectors(selectCompanies);
+    companiesAdapter.getSelectors(selectCompanies)
 
 export const selectCompaniesLoading = createSelector(
-  selectCompanies,
-  (state) => state.companiesLoading
-);
+    selectCompanies,
+    (state) => state.companiesLoading
+)
