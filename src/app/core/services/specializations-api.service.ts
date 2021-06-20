@@ -1,24 +1,18 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { DictionaryElementModel } from '@store/dictionaries/models/dictionary-element.model';
-import { Observable, of } from 'rxjs';
-import { delay } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SpecializationsApiService {
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   getSpecializations(): Observable<DictionaryElementModel[]> {
-    return of(
-      new Array(7)
-        .fill({
-          name: (Math.round(Math.random() * 500) / 100).toString(),
-        })
-        .map((val, index) => ({
-          ...val,
-          id: index.toString(),
-        }))
-    ).pipe(delay(1000));
+    return this.http.get<DictionaryElementModel[]>(
+      `${environment.api}/Specializations`
+    );
   }
 }
