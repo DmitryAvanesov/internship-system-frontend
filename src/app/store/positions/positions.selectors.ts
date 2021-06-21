@@ -8,8 +8,10 @@ const selectPositions = createFeatureSelector<AppState, PositionsState>(
   'positions'
 );
 
-export const { selectAll: selectAllPositions } =
-  positionsAdapter.getSelectors(selectPositions);
+export const {
+  selectAll: selectAllPositions,
+  selectEntities: selectPositionEntities,
+} = positionsAdapter.getSelectors(selectPositions);
 
 export const selectPositionsLoading = createSelector(
   selectPositions,

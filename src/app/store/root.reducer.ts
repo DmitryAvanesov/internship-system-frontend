@@ -12,6 +12,8 @@ import { interviewsReducer } from '@store/interviews/interviews.reducer';
 import { InterviewsState } from '@store/interviews/interviews.state';
 import { PositionsState } from '@store/positions/positions.state';
 import { positionsReducer } from '@store/positions/positions.reducer';
+import { StudentPrioritiesState } from '@store/student-priorities/student-priorities.state';
+import { studentPrioritiesReducer } from '@store/student-priorities/student-priorities.reducer';
 
 export interface AppState {
   router: RouterReducerState;
@@ -21,6 +23,7 @@ export interface AppState {
   auth: AuthState;
   interviews: InterviewsState;
   positions: PositionsState;
+  studentPriorities: StudentPrioritiesState;
 }
 
 export const appReducers: ActionReducerMap<AppState> = {
@@ -31,4 +34,5 @@ export const appReducers: ActionReducerMap<AppState> = {
   auth: authReducer,
   interviews: interviewsReducer,
   positions: positionsReducer,
+  studentPriorities: studentPrioritiesReducer,
 };
