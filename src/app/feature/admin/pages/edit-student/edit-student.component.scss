@@ -32,6 +32,14 @@
     }
   }
 
+  .company-name {
+    margin-right: 8px;
+  }
+
+  .interview-datetime {
+    pointer-events: none;
+  }
+
   .buttons-block {
     display: flex;
     justify-content: flex-end;

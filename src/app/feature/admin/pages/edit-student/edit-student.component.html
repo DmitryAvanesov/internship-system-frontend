@@ -3,10 +3,6 @@
   [formGroup]="form"
   class="app-container student-account"
 >
-  <!-- <ng-template #loader>
-    <app-loader></app-loader>
-  </ng-template> -->
-  <!-- <div *ngIf="student$ | async; else loader"></div> -->
   <div class="student-account-header">
     <div class="student-header">
       <ion-avatar class="avatar" slot="start">
@@ -75,10 +71,32 @@
       </div>
     </ion-card-content>
   </ion-card>
+  <ion-card>
+    <h3>Собеседования</h3>
+    <ion-list lines="none">
+      <ion-item *ngFor="let interview of interviews$ | async">
+        <ion-label>
+          <ion-text class="company-name">
+            {{ interviewCompanies[interview.id]?.userName }}
+          </ion-text>
+          <ion-text color="medium">
+            {{ interviewPositions[interview.id]?.name }}
+          </ion-text>
+        </ion-label>
+        <ion-datetime
+          class="interview-datetime"
+          displayFormat="DD.MM.YYYY HH:mm"
+          [value]="interview.date"
+          placeholder="Не назначено"
+          [disabled]="interview.state === 2"
+        ></ion-datetime>
+      </ion-item>
+    </ion-list>
+  </ion-card>
   <div class="buttons-block">
-    <ion-button (click)="save()" class="save-button" color="primary"
-      >Сохранить</ion-button
-    >
+    <ion-button (click)="save()" class="save-button" color="primary">
+      Сохранить
+    </ion-button>
   </div>
 </div>
 

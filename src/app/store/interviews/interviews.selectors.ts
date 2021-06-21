@@ -21,6 +21,14 @@ export const selectInterview = createSelector(
   (state, props) => state.entities[props.id]
 );
 
+export const selectInterviewByStudent = createSelector(
+  selectInterviews,
+  (state, props) =>
+    Object.values(state.entities).filter(
+      (entity: InterviewModel) => entity.studentId === props.studentId
+    )
+);
+
 export const selectInterviewByStudentAndPosition = createSelector(
   selectInterviews,
   (state, props) =>

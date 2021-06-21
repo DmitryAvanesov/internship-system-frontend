@@ -27,8 +27,9 @@
                   (userRoles$ | async) && (userRoles$ | async)[0] === adminRole
                 "
                 [routerLink]="['/admin', 'student', (student$ | async)?.id]"
-                >Редактировать</ion-button
               >
+                Редактировать
+              </ion-button>
             </div>
           </div>
         </ion-col>

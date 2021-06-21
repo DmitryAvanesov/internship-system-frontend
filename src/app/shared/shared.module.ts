@@ -5,12 +5,14 @@ import { IonicModule } from '@ionic/angular';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CompanyAccountComponent } from '@shared/components/company-account/company-account.component';
 import { StudentAccountComponent } from '@shared/components/student-account/student-account.component';
+import { InterviewDatePipe } from '@core/pipes/interview-date.pipe';
 
 @NgModule({
   declarations: [
     LoaderComponent,
     CompanyAccountComponent,
     StudentAccountComponent,
+    InterviewDatePipe,
   ],
   imports: [CommonModule, IonicModule, ReactiveFormsModule],
   exports: [
@@ -19,6 +21,7 @@ import { StudentAccountComponent } from '@shared/components/student-account/stud
     ReactiveFormsModule,
     CompanyAccountComponent,
     StudentAccountComponent,
+    InterviewDatePipe,
   ],
 })
 export class SharedModule {}
