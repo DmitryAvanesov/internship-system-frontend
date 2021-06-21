@@ -36,7 +36,7 @@ export class StudentPageComponent implements OnInit {
 
   constructor(private store: Store) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.store.dispatch(loadStudents());
     this.store.dispatch(loadCompanies());
 

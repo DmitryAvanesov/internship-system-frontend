@@ -6,7 +6,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { loadStudents } from '@store/students/students.actions';
 import {
-  changeCompany,
   createCompany,
   loadCompanies,
 } from '@store/companies/companies.actions';
@@ -35,18 +34,21 @@ export class CreateCompanyComponent implements OnInit {
       userName: 'Ivan',
       score: Math.round(Math.random() * 500) / 100,
       interviews: [],
+      subjectAssessments: [],
     },
     {
       id: '2',
       userName: 'Ivan',
       score: Math.round(Math.random() * 500) / 100,
       interviews: [],
+      subjectAssessments: [],
     },
     {
       id: '3',
       userName: 'Ivan',
       score: Math.round(Math.random() * 500) / 100,
       interviews: [],
+      subjectAssessments: [],
     },
   ];
 
@@ -58,12 +60,12 @@ export class CreateCompanyComponent implements OnInit {
 
   constructor(private store: Store) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.store.dispatch(loadStudents());
     this.store.dispatch(loadCompanies());
   }
 
-  save() {
+  save(): void {
     const newCompany: CompanyModel = {
       specializations: [],
       technologies: [],

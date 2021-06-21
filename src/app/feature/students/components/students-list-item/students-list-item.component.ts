@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { StudentModel } from 'src/app/store/students/models/student.model';
 import { applicationColors } from '@core/consts/applicationColors';
 
@@ -9,5 +9,7 @@ import { applicationColors } from '@core/consts/applicationColors';
 })
 export class StudentsListItemComponent {
   @Input() student: StudentModel & { specializationNames: string[] };
+  @Input() score = (Math.random() * 2.6 + 2.7).toFixed(2);
+
   colors = applicationColors;
 }
