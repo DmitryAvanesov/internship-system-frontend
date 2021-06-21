@@ -30,10 +30,10 @@ export interface MockSpecialization {
 export class CompanyComponent implements OnInit {
   // the current user goes here
   user: StudentModel = {
-    id: '6c18dea8-ac7f-4a5c-b667-ed124f6a2b78',
+    id: 'b0fe2425-0750-4dfe-aa54-f5302937438b',
     userName: 'Ivan',
     score: Math.round(Math.random() * 500) / 100,
-    interviews: ['3fa85f64-5717-4562-b3fc-2c963f66afa6'],
+    interviews: [],
   };
   routeId$ = this.store.select(selectRouteParam('id'));
   company$: Observable<CompanyModel>;
@@ -128,14 +128,14 @@ export class CompanyComponent implements OnInit {
   }
 
   handleInterviewButtonClick() {
-    this.interviewsApiService
-      .postInterview({
-        state: 0,
-        studentId: this.user.id,
-        positionId: this.positionId,
+    this.store.dispatch(
+      interviewAdded({
+        interview: {
+          state: 0,
+          studentId: this.user.id,
+          positionId: this.positionId,
+        },
       })
-      .subscribe((interview) => {
-        this.store.dispatch(interviewAdded({ interview }));
-      });
+    );
   }
 }

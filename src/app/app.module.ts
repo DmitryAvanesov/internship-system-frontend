@@ -15,6 +15,7 @@ import { DictionariesEffects } from '@store/dictionaries/dictionaries.effects';
 import { HttpClientModule } from '@angular/common/http';
 import { InterviewsEffects } from '@store/interviews/interviews.effects';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PositionsEffects } from '@store/positions/positions.effects';
 
 @NgModule({
   declarations: [AppComponent, LayoutComponent],
@@ -25,7 +26,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    EffectsModule.forRoot([DictionariesEffects, InterviewsEffects]),
+    EffectsModule.forRoot([
+      DictionariesEffects,
+      InterviewsEffects,
+      PositionsEffects,
+    ]),
     StoreModule.forRoot(appReducers),
     StoreRouterConnectingModule.forRoot(),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
