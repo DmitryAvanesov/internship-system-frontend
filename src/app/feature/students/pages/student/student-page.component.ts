@@ -6,15 +6,11 @@ import { combineLatest, Observable } from 'rxjs';
 import { selectRouteParam } from 'src/app/store/router/router.selectors';
 import { StudentModel } from 'src/app/store/students/models/student.model';
 import { loadStudents } from 'src/app/store/students/students.actions';
-import { studentsReducer } from 'src/app/store/students/students.reducer';
 import { selectStudent } from 'src/app/store/students/students.selectors';
 import { selectUserRoles } from '@store/auth/auth.selectors';
 import { RolesEnum } from '@core/enums/roles.enum';
-import { DictionaryElementModel } from '@store/dictionaries/models/dictionary-element.model';
 import {
   selectAllSpecializationEntities,
-  selectAllSpecializations,
-  selectAllTechnologies,
   selectAllTechnologyEntities,
 } from '@store/dictionaries/dictionaries.selectors';
 import { filter } from 'rxjs/operators';

@@ -4,11 +4,12 @@ import {
   selectAllTechnologies,
 } from '@store/dictionaries/dictionaries.selectors';
 import { Store } from '@ngrx/store';
-import { StudentsApiService } from '@core/services/students-api.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import { StudentModel } from '@store/students/models/student.model';
 import { selectRouteParam } from '@store/router/router.selectors';
-import { selectAllCompanies } from '@store/companies/companies.selectors';
+import {
+  selectAllCompanies,
+  selectCompany,
+} from '@store/companies/companies.selectors';
 import { Observable } from 'rxjs';
 import { changeStudent, loadStudents } from '@store/students/students.actions';
 import { loadCompanies } from '@store/companies/companies.actions';
@@ -18,6 +19,11 @@ import {
 } from '@store/students/students.selectors';
 import { FormControl, FormGroup } from '@angular/forms';
 import { filter } from 'rxjs/operators';
+import { selectInterviewByStudent } from '@store/interviews/interviews.selectors';
+import { InterviewModel } from '@store/interviews/models/interview.model';
+import { CompanyModel } from '@store/companies/models/company.model';
+import { PositionModel } from '@store/positions/models/position.model';
+import { selectPosition } from '@store/positions/positions.selectors';
 
 @Component({
   selector: 'app-edit-student',
@@ -30,6 +36,9 @@ export class EditStudentComponent implements OnInit {
 
   routeId$ = this.store.select(selectRouteParam('id'));
   companies$ = this.store.select(selectAllCompanies);
+  interviews$: Observable<InterviewModel[]>;
+  interviewCompanies: { [id: string]: CompanyModel };
+  interviewPositions: { [id: string]: PositionModel };
   student$: Observable<StudentModel>;
   studentsLoading$ = this.store.select(selectStudentsLoading);
 
@@ -43,7 +52,7 @@ export class EditStudentComponent implements OnInit {
 
   constructor(private store: Store) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.store.dispatch(loadStudents());
     this.store.dispatch(loadCompanies());
 
@@ -56,10 +65,33 @@ export class EditStudentComponent implements OnInit {
       this.form.controls.info?.setValue(student.info);
       this.form.controls.specializations?.setValue(student.specializations);
       this.form.controls.technologies?.setValue(student.technologies);
+
+      this.interviews$ = this.store.select(selectInterviewByStudent, {
+        studentId: this.studentModel.id,
+      }) as Observable<InterviewModel[]>;
+
+      this.interviewCompanies = {};
+      this.interviewPositions = {};
+
+      this.interviews$.subscribe((interviews) => {
+        for (const interview of interviews) {
+          this.store
+            .select(selectPosition, { id: interview.positionId })
+            .subscribe((position: PositionModel) => {
+              this.interviewPositions[interview.id] = position;
+
+              this.store
+                .select(selectCompany, { id: position.companyId })
+                .subscribe((company: CompanyModel) => {
+                  this.interviewCompanies[interview.id] = company;
+                });
+            });
+        }
+      });
     });
   }
 
-  save() {
+  save(): void {
     const newStudent: StudentModel = {
       ...this.studentModel,
       ...this.form.value,

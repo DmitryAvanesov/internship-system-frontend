@@ -78,6 +78,7 @@
           placeholder="Выберите дату"
           cancelText="Отменить"
           doneText="Выбрать"
+          [disabled]="interview.state"
           [value]="interview.date"
           (ionChange)="handleChangeDate($event, interview.id)"
         ></ion-datetime>
