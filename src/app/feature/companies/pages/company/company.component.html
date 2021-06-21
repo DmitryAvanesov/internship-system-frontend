@@ -6,8 +6,9 @@
         <ion-button
           *ngIf="(userRoles$ | async) && (userRoles$ | async)[0] === adminRole"
           [routerLink]="['/admin', 'company', (company$ | async)?.id]"
-          >Редактировать</ion-button
         >
+          Редактировать
+        </ion-button>
       </div>
       <div class="company__interview">
         <ion-select
@@ -29,9 +30,11 @@
         >
           {{
             (interview$ | async)
-              ? (interview$ | async).date
-                ? "Собеседование " + (interview$ | async).date
-                : "Заявка отправлена"
+              ? (interview$ | async).state === 0
+                ? "Заявка отправлена"
+                : (interview$ | async).state === 1
+                ? "Собеседование назначено"
+                : "Собеседование проведено"
               : "Записаться на собеседование"
           }}
         </ion-button>

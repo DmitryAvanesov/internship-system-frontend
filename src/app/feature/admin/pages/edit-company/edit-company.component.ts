@@ -132,7 +132,23 @@ export class EditCompanyComponent implements OnInit {
     this.interviewDates[interviewId] = event.detail.value;
   }
 
-  handleSaveDate(interview: InterviewModel): void {
-    this.store.dispatch(interviewChanged({ interview }));
+  handleChangeInterviewState(interview: InterviewModel): void {
+    if (interview.state === 0) {
+      this.store.dispatch(
+        interviewChanged({
+          interview: {
+            ...interview,
+            date: this.interviewDates[interview.id],
+            state: 1,
+          },
+        })
+      );
+    } else if (interview.state === 1) {
+      this.store.dispatch(
+        interviewChanged({
+          interview: { ...interview, state: 2 },
+        })
+      );
+    }
   }
 }
