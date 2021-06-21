@@ -9,10 +9,14 @@
       <span class="user-name">{{ student.userName }}</span>
       <div class="specializations">
         <ion-badge
-          *ngFor="let specialization of student.specializationNames; let index = index;"
+          *ngFor="
+            let specialization of student.specializationNames;
+            let index = index
+          "
           class="specialization"
           [color]="colors[index % colors.length]"
-        >{{specialization}}</ion-badge>
+          >{{ specialization }}</ion-badge
+        >
       </div>
     </div>
     <span>{{ student.score }}</span>

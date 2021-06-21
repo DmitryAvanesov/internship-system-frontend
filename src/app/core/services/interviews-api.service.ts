@@ -28,4 +28,11 @@ export class InterviewsApiService {
       interview
     );
   }
+
+  putInterview(interview: InterviewModel): Observable<InterviewModel> {
+    return this.http.put<InterviewModel>(
+      `${environment.api}/Interviews`,
+      interview
+    );
+  }
 }

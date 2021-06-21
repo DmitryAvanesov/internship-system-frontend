@@ -1,6 +1,6 @@
-import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
-import {appRoutes} from './app.routes';
-import {NgModule} from '@angular/core';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { appRoutes } from './app.routes';
+import { NgModule } from '@angular/core';
 
 const routes: Routes = [
   {
@@ -28,7 +28,9 @@ const routes: Routes = [
   {
     ...appRoutes.studentAccount,
     loadChildren: (): Promise<unknown> =>
-      import('@student-account/student-account.module').then((m) => m.StudentAccountModule),
+      import('@student-account/student-account.module').then(
+        (m) => m.StudentAccountModule
+      ),
   },
   {
     ...appRoutes.admin,

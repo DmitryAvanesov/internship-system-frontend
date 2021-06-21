@@ -1,12 +1,21 @@
 <div [formGroup]="form" class="app-container company-account">
   <ion-item class="company-account__item">
-    <ion-input formControlName="userName" placeholder="Название компании"></ion-input>
+    <ion-input
+      formControlName="userName"
+      placeholder="Название компании"
+    ></ion-input>
   </ion-item>
   <ion-item class="company-account__item">
-    <ion-textarea formControlName="info" placeholder="Описание компании"></ion-textarea>
+    <ion-textarea
+      formControlName="info"
+      placeholder="Описание компании"
+    ></ion-textarea>
   </ion-item>
   <ion-item class="company-account__item">
-    <ion-input formControlName="email" placeholder="Email для связи"></ion-input>
+    <ion-input
+      formControlName="email"
+      placeholder="Email для связи"
+    ></ion-input>
   </ion-item>
   <ion-card class="company-account__item addition-select">
     <h3>Специализации</h3>
@@ -32,7 +41,6 @@
       </ion-button>
     </div>
   </ion-card>
-
   <ion-card class="company-account__item addition-select">
     <h3>Приоритеты компании</h3>
     <ion-button size="small">Добавить</ion-button>
@@ -52,12 +60,44 @@
       </ion-button>
     </div>
   </ion-card>
-  <div style="display: flex; justify-content: flex-end;">
+  <ion-card class="company-account__item addition-select">
+    <h3>Собеседования</h3>
+    <ion-list lines="none">
+      <ion-item *ngFor="let interview of interviews">
+        <ion-label>
+          <ion-text class="company-account__student-name">
+            {{ interviewStudents[interview.id]?.userName }}
+          </ion-text>
+          <ion-text color="medium">
+            {{ interviewPositions[interview.id]?.name }}
+          </ion-text>
+        </ion-label>
+        <ion-datetime
+          class="company-account__date"
+          displayFormat="D MMM YYYY H:mm"
+          placeholder="Выберите дату"
+          cancelText="Отменить"
+          doneText="Выбрать"
+          [value]="interview.date"
+          (ionChange)="handleChangeDate($event, interview.id)"
+        ></ion-datetime>
+        <ion-button
+          [disabled]="!interviewDates[interview.id]"
+          (click)="handleSaveDate(interview)"
+        >
+          Назначить
+        </ion-button>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+  <div style="display: flex; justify-content: flex-end">
     <ion-button
       [disabled]="form.invalid"
       (click)="save()"
       class="save-button"
       color="primary"
-    >Сохранить</ion-button>
+    >
+      Сохранить
+    </ion-button>
   </div>
 </div>

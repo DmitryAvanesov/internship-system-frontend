@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouteReuseStrategy, RouterModule } from '@angular/router';
-
+import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LayoutComponent } from '@core/layout/layout.component';
@@ -16,6 +14,8 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { DictionariesEffects } from '@store/dictionaries/dictionaries.effects';
 import { HttpClientModule } from '@angular/common/http';
 import { InterviewsEffects } from '@store/interviews/interviews.effects';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PositionsEffects } from '@store/positions/positions.effects';
 
 @NgModule({
   declarations: [AppComponent, LayoutComponent],
@@ -26,7 +26,11 @@ import { InterviewsEffects } from '@store/interviews/interviews.effects';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    EffectsModule.forRoot([DictionariesEffects, InterviewsEffects]),
+    EffectsModule.forRoot([
+      DictionariesEffects,
+      InterviewsEffects,
+      PositionsEffects,
+    ]),
     StoreModule.forRoot(appReducers),
     StoreRouterConnectingModule.forRoot(),
     !environment.production ? StoreDevtoolsModule.instrument() : [],

@@ -1,10 +1,13 @@
 <div class="app-container technologies">
-
   <ion-button (click)="createOrEdit()">Создать технологию</ion-button>
 
   <div class="companies__table">
     <ion-list lines="none">
-      <ion-item *ngFor="let technology of (technologies$ | async)" (click)="createOrEdit(technology)" class="item">
+      <ion-item
+        *ngFor="let technology of technologies$ | async"
+        (click)="createOrEdit(technology)"
+        class="item"
+      >
         <ion-label class="item__label">
           {{ technology.name }}
         </ion-label>

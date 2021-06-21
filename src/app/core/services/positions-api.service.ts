@@ -10,6 +10,10 @@ import { environment } from 'src/environments/environment';
 export class PositionsApiService {
   constructor(private http: HttpClient) {}
 
+  getPositions(): Observable<PositionModel[]> {
+    return this.http.get<PositionModel[]>(`${environment.api}/Positions`);
+  }
+
   getPositionById(id: string): Observable<PositionModel> {
     return this.http.get<PositionModel>(`${environment.api}/Positions/${id}`);
   }

@@ -17,17 +17,27 @@ export class TechnologiesApiService {
     );
   }
 
-  createNewTechnology(newTechnology: DictionaryElementModel): Observable<DictionaryElementModel> {
-    return this.http.post<DictionaryElementModel>(`${environment.api}/Technologies`, {
-      ...newTechnology,
-      users: [],
-    });
+  createNewTechnology(
+    newTechnology: DictionaryElementModel
+  ): Observable<DictionaryElementModel> {
+    return this.http.post<DictionaryElementModel>(
+      `${environment.api}/Technologies`,
+      {
+        ...newTechnology,
+        users: [],
+      }
+    );
   }
 
-  changeTechnology(technology: DictionaryElementModel): Observable<DictionaryElementModel> {
-    return this.http.put<DictionaryElementModel>(`${environment.api}/Technologies`, {
-      ...technology,
-      users: [],
-    });
+  changeTechnology(
+    technology: DictionaryElementModel
+  ): Observable<DictionaryElementModel> {
+    return this.http.put<DictionaryElementModel>(
+      `${environment.api}/Technologies`,
+      {
+        ...technology,
+        users: [],
+      }
+    );
   }
 }

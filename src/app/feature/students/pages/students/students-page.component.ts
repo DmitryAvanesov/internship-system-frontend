@@ -5,11 +5,14 @@ import {
   selectAllStudents,
   selectStudentsLoading,
 } from 'src/app/store/students/students.selectors';
-import {StudentModel} from '@store/students/models/student.model';
-import {DictionaryElementModel} from '@store/dictionaries/models/dictionary-element.model';
-import {selectAllSpecializationEntities, selectAllSpecializations} from '@store/dictionaries/dictionaries.selectors';
-import {combineLatest} from 'rxjs';
-import {filter} from 'rxjs/operators';
+import { StudentModel } from '@store/students/models/student.model';
+import { DictionaryElementModel } from '@store/dictionaries/models/dictionary-element.model';
+import {
+  selectAllSpecializationEntities,
+  selectAllSpecializations,
+} from '@store/dictionaries/dictionaries.selectors';
+import { combineLatest } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-students-page',
@@ -21,7 +24,7 @@ export class StudentsPageComponent implements OnInit {
   studentsLoading$ = this.store.select(selectStudentsLoading);
   specializations$ = this.store.select(selectAllSpecializationEntities);
 
-  students: (StudentModel & {specializationNames: string[]})[] = [];
+  students: (StudentModel & { specializationNames: string[] })[] = [];
 
   constructor(private store: Store) {}
 
@@ -29,15 +32,16 @@ export class StudentsPageComponent implements OnInit {
     this.store.dispatch(loadStudents());
 
     combineLatest([this.students$, this.specializations$])
-      .pipe(filter(([students, specializations]) =>
-        !!students && !!students.length
-      ))
+      .pipe(
+        filter(([students, specializations]) => !!students && !!students.length)
+      )
       .subscribe(([students, specializations]) => {
         this.students = students.map((student) => ({
           ...student,
-          specializationNames: student.specializations.map((spec) => specializations[spec].name)
+          specializationNames: student.specializations.map(
+            (spec) => specializations[spec].name
+          ),
         }));
-      })
-
+      });
   }
 }

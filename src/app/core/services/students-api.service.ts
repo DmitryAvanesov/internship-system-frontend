@@ -16,6 +16,9 @@ export class StudentsApiService {
   }
 
   changeStudent(changedStudent: StudentModel): Observable<StudentModel> {
-    return this.http.put<StudentModel>(`${environment.api}/Students`, changedStudent);
+    return this.http.put<StudentModel>(
+      `${environment.api}/Students`,
+      changedStudent
+    );
   }
 }

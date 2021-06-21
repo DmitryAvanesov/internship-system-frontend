@@ -23,10 +23,10 @@
         <ion-label>Специализации</ion-label>
         <ion-select multiple>
           <ion-select-option
-            *ngFor="let specialization of (allSpecializations$ | async)"
+            *ngFor="let specialization of allSpecializations$ | async"
             [value]="specialization.id"
           >
-            {{specialization.name}}
+            {{ specialization.name }}
           </ion-select-option>
         </ion-select>
       </ion-item>
@@ -34,10 +34,10 @@
         <ion-label>Технологии</ion-label>
         <ion-select multiple>
           <ion-select-option
-            *ngFor="let technology of (allTechnologies$ | async)"
+            *ngFor="let technology of allTechnologies$ | async"
             [value]="technology.id"
           >
-            {{technology.name}}
+            {{ technology.name }}
           </ion-select-option>
         </ion-select>
       </ion-item>

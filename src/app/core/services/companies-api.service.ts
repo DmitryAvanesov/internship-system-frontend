@@ -18,6 +18,9 @@ export class CompaniesApiService {
     return this.http.put<CompanyModel>(`${environment.api}/Companies`, company);
   }
   createCompany(company: CompanyModel): Observable<CompanyModel> {
-    return this.http.post<CompanyModel>(`${environment.api}/Companies`, company);
+    return this.http.post<CompanyModel>(
+      `${environment.api}/Companies`,
+      company
+    );
   }
 }

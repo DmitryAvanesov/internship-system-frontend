@@ -1,6 +1,9 @@
 <div>
   <h5 class="title">{{ title }}</h5>
-  <ion-chip *ngFor="let chip of chipsList; let i = index" [color]="colors[i % colors.length]">
-    <ion-label>{{chip}}</ion-label>
+  <ion-chip
+    *ngFor="let chip of chipsList; let i = index"
+    [color]="colors[i % colors.length]"
+  >
+    <ion-label>{{ chip }}</ion-label>
   </ion-chip>
 </div>
