@@ -74,7 +74,7 @@
         </ion-label>
         <ion-datetime
           class="company-account__date"
-          displayFormat="D MMM YYYY H:mm"
+          displayFormat="DD.MM.YYYY HH:mm"
           placeholder="Выберите дату"
           cancelText="Отменить"
           doneText="Выбрать"
@@ -82,10 +82,19 @@
           (ionChange)="handleChangeDate($event, interview.id)"
         ></ion-datetime>
         <ion-button
-          [disabled]="!interviewDates[interview.id]"
-          (click)="handleSaveDate(interview)"
+          [disabled]="
+            (interview.state === 0 && !interviewDates[interview.id]) ||
+            interview.state === 2
+          "
+          (click)="handleChangeInterviewState(interview)"
         >
-          Назначить
+          {{
+            interview.state === 0
+              ? "Назначить"
+              : interview.state === 1
+              ? "Завершить"
+              : "Завершено"
+          }}
         </ion-button>
       </ion-item>
     </ion-list>
