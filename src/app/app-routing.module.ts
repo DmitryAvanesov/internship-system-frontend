@@ -37,6 +37,11 @@ const routes: Routes = [
     loadChildren: (): Promise<unknown> =>
       import('@admin/admin.module').then((m) => m.AdminModule),
   },
+  {
+    ...appRoutes.auth,
+    loadChildren: (): Promise<unknown> =>
+      import('@auth/auth.module').then((m) => m.AuthModule),
+  },
 ];
 
 @NgModule({

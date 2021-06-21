@@ -7,6 +7,7 @@ import { Store } from '@ngrx/store';
 import { RouteData } from '@store/router/models/route-data.model';
 import { Subject } from 'rxjs';
 import { accountRolesLinks } from '@core/consts/account-roles-links';
+import { logout } from '@store/auth/auth.actions';
 
 @Component({
   selector: 'app-layout',
@@ -23,6 +24,8 @@ export class LayoutComponent implements OnInit, OnDestroy {
   userRoles$ = this.store.select(selectUserRoles);
   accountLink = '';
 
+  showToolbar = true;
+
   private unsubscribe = new Subject();
 
   constructor(private store: Store) {}
@@ -32,6 +35,7 @@ export class LayoutComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.unsubscribe))
       .subscribe((data: RouteData) => {
         this.title = data?.title;
+        this.showToolbar = data?.title !== 'Авторизация';
       });
     this.userRoles$
       .pipe(
@@ -41,6 +45,10 @@ export class LayoutComponent implements OnInit, OnDestroy {
       .subscribe((roles) => {
         this.accountLink = accountRolesLinks[roles[0]];
       });
+  }
+
+  logout() {
+    this.store.dispatch(logout());
   }
 
   ngOnDestroy() {

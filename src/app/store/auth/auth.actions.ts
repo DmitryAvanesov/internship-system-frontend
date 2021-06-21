@@ -18,3 +18,5 @@ export const signedIn = createAction(
   '[Auth] Signed in',
   props<{ response: TransformedAuthResponse }>()
 );
+
+export const logout = createAction('[Auth] Logout');

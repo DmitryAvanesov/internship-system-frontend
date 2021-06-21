@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { signedIn, signIn } from '@store/auth/auth.actions';
+import { logout, signedIn, signIn } from '@store/auth/auth.actions';
 import { Action } from '@ngrx/store';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
 import { AuthApiService } from '@core/services/auth-api.service';
 import { TransformedAuthResponse } from '@core/interfaces/auth-response.interface';
 import { RolesEnum } from '@core/enums/roles.enum';
 import { of } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthEffects {
@@ -37,22 +38,22 @@ export class AuthEffects {
                   }),
                   map((response) => {
                     return { response, role };
-                  })
-                )
-            ),
-            catchError(() =>
-              this.authApiService
-                .signIn(
-                  { name: action.name, password: action.password },
-                  'HITsWorkers'
-                )
-                .pipe(
-                  tap(() => {
-                    role = RolesEnum.Admin;
                   }),
-                  map((response) => {
-                    return { response, role };
-                  })
+                  catchError(() =>
+                    this.authApiService
+                      .signIn(
+                        { name: action.name, password: action.password },
+                        'HITsWorkers'
+                      )
+                      .pipe(
+                        tap(() => {
+                          role = RolesEnum.Admin;
+                        }),
+                        map((response) => {
+                          return { response, role };
+                        })
+                      )
+                  )
                 )
             )
           );
@@ -69,8 +70,31 @@ export class AuthEffects {
     )
   );
 
+  success$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(signedIn.type),
+        map(() => {
+          this.router.navigate(['/companies']);
+        })
+      ),
+    { dispatch: false }
+  );
+
+  logout$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(logout.type),
+        map(() => {
+          this.router.navigate(['/auth/sign-in']);
+        })
+      ),
+    { dispatch: false }
+  );
+
   constructor(
     private actions$: Actions,
-    private authApiService: AuthApiService
+    private authApiService: AuthApiService,
+    private router: Router
   ) {}
 }
