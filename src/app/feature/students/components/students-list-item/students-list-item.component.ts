@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { StudentModel } from 'src/app/store/students/models/student.model';
-import {applicationColors} from '@core/consts/applicationColors';
+import { applicationColors } from '@core/consts/applicationColors';
 
 @Component({
   selector: 'app-students-list-item',
@@ -8,7 +8,7 @@ import {applicationColors} from '@core/consts/applicationColors';
   styleUrls: ['./students-list-item.component.scss'],
 })
 export class StudentsListItemComponent implements OnInit {
-  @Input() student: StudentModel & {specializationNames: string[]};
+  @Input() student: StudentModel & { specializationNames: string[] };
   colors = applicationColors;
 
   constructor() {}

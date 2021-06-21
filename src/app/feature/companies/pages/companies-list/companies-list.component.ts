@@ -5,8 +5,8 @@ import {
   selectCompaniesLoading,
 } from '@store/companies/companies.selectors';
 import { loadCompanies } from '@store/companies/companies.actions';
-import {selectUserRoles} from '@store/auth/auth.selectors';
-import {RolesEnum} from '@core/enums/roles.enum';
+import { selectUserRoles } from '@store/auth/auth.selectors';
+import { RolesEnum } from '@core/enums/roles.enum';
 
 @Component({
   selector: 'app-companies-list',

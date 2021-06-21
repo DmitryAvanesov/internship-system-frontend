@@ -19,15 +19,18 @@ import { selectRouteParam } from '@store/router/router.selectors';
 import { StudentModel } from '@store/students/models/student.model';
 import { Observable, of } from 'rxjs';
 import { skipWhile } from 'rxjs/operators';
-import {Store} from '@ngrx/store';
-import {loadCompanies} from '@store/companies/companies.actions';
-import {loadStudents} from '@store/students/students.actions';
-import {CompanyModel} from '@store/companies/models/company.model';
-import {selectRouteParam} from '@store/router/router.selectors';
-import {selectAllCompanies, selectCompany} from '@store/companies/companies.selectors';
-import {selectStudent} from '@store/students/students.selectors';
-import {selectUserRoles} from '@store/auth/auth.selectors';
-import {RolesEnum} from '@core/enums/roles.enum';
+import { Store } from '@ngrx/store';
+import { loadCompanies } from '@store/companies/companies.actions';
+import { loadStudents } from '@store/students/students.actions';
+import { CompanyModel } from '@store/companies/models/company.model';
+import { selectRouteParam } from '@store/router/router.selectors';
+import {
+  selectAllCompanies,
+  selectCompany,
+} from '@store/companies/companies.selectors';
+import { selectStudent } from '@store/students/students.selectors';
+import { selectUserRoles } from '@store/auth/auth.selectors';
+import { RolesEnum } from '@core/enums/roles.enum';
 
 export interface MockSpecialization {
   id: string;

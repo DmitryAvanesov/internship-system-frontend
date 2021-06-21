@@ -1,4 +1,4 @@
-import {DictionaryElementModel} from '@store/dictionaries/models/dictionary-element.model';
+import { DictionaryElementModel } from '@store/dictionaries/models/dictionary-element.model';
 
 export interface StudentModel {
   id: string;

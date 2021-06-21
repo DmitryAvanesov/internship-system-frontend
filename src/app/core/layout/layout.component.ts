@@ -1,12 +1,12 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {filter, takeUntil} from 'rxjs/operators';
-import {isUserLoggedIn, selectUserRoles} from '@store/auth/auth.selectors';
-import {appRoutes} from '../../app.routes';
-import {selectRouteData} from '@store/router/router.selectors';
-import {Store} from '@ngrx/store';
-import {RouteData} from '@store/router/models/route-data.model';
-import {Subject} from 'rxjs';
-import {accountRolesLinks} from '@core/consts/account-roles-links';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { filter, takeUntil } from 'rxjs/operators';
+import { isUserLoggedIn, selectUserRoles } from '@store/auth/auth.selectors';
+import { appRoutes } from '../../app.routes';
+import { selectRouteData } from '@store/router/router.selectors';
+import { Store } from '@ngrx/store';
+import { RouteData } from '@store/router/models/route-data.model';
+import { Subject } from 'rxjs';
+import { accountRolesLinks } from '@core/consts/account-roles-links';
 
 @Component({
   selector: 'app-layout',

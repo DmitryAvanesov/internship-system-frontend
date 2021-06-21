@@ -1,5 +1,5 @@
 <div
-  *ngIf="!(studentsLoading$ | async) else loader"
+  *ngIf="!(studentsLoading$ | async); else loader"
   [formGroup]="form"
   class="app-container student-account"
 >
@@ -15,21 +15,24 @@
         />
       </ion-avatar>
       <div class="info">
-        <h1 class="user-name">{{(student$ | async)?.userName}}</h1>
+        <h1 class="user-name">{{ (student$ | async)?.userName }}</h1>
       </div>
     </div>
   </div>
   <ion-card class="inputs-block">
     <ion-card-content>
-      <ion-input placeholder="Ссылка на портфолио" formControlName="info"></ion-input>
+      <ion-input
+        placeholder="Ссылка на портфолио"
+        formControlName="info"
+      ></ion-input>
       <ion-item>
         <ion-label>Специализации</ion-label>
         <ion-select multiple formControlName="specializations">
           <ion-select-option
-            *ngFor="let specialization of (allSpecializations$ | async)"
+            *ngFor="let specialization of allSpecializations$ | async"
             [value]="specialization.id"
           >
-            {{specialization.name}}
+            {{ specialization.name }}
           </ion-select-option>
         </ion-select>
       </ion-item>
@@ -37,10 +40,10 @@
         <ion-label>Технологии</ion-label>
         <ion-select multiple formControlName="technologies">
           <ion-select-option
-            *ngFor="let technology of (allTechnologies$ | async)"
+            *ngFor="let technology of allTechnologies$ | async"
             [value]="technology.id"
           >
-            {{technology.name}}
+            {{ technology.name }}
           </ion-select-option>
         </ion-select>
       </ion-item>
@@ -73,7 +76,9 @@
     </ion-card-content>
   </ion-card>
   <div class="buttons-block">
-    <ion-button (click)="save()" class="save-button" color="primary">Сохранить</ion-button>
+    <ion-button (click)="save()" class="save-button" color="primary"
+      >Сохранить</ion-button
+    >
   </div>
 </div>
 

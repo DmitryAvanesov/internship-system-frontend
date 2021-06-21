@@ -1,9 +1,10 @@
 <div class="app-container company">
-  <h1>{{(company$ | async)?.userName}}</h1>
+  <h1>{{ (company$ | async)?.userName }}</h1>
   <ion-button
     *ngIf="(userRoles$ | async) && (userRoles$ | async)[0] === adminRole"
     [routerLink]="['/admin', 'company', (company$ | async)?.id]"
-  >Редактировать</ion-button>
+    >Редактировать</ion-button
+  >
   <ion-grid>
     <ion-row class="company__header">
       <h1>Company Name</h1>
@@ -86,7 +87,7 @@
           </ion-card-header>
 
           <ion-card-content>
-            {{(company$ | async)?.info}}
+            {{ (company$ | async)?.info }}
           </ion-card-content>
         </ion-card>
       </ion-col>

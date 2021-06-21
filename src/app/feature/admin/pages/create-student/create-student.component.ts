@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {selectAllSpecializations, selectAllTechnologies} from '@store/dictionaries/dictionaries.selectors';
-import {Store} from '@ngrx/store';
+import {
+  selectAllSpecializations,
+  selectAllTechnologies,
+} from '@store/dictionaries/dictionaries.selectors';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-create-student',
@@ -13,5 +16,4 @@ export class CreateStudentComponent implements OnInit {
   constructor(private store: Store) {}
 
   ngOnInit() {}
-
 }

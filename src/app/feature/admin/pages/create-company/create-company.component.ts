@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import {CompanyModel} from '@store/companies/models/company.model';
-import {MockSpecialization} from '@companies/pages/company/company.component';
-import {StudentModel} from '@store/students/models/student.model';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {Store} from '@ngrx/store';
-import {loadStudents} from '@store/students/students.actions';
-import {changeCompany, createCompany, loadCompanies} from '@store/companies/companies.actions';
+import { CompanyModel } from '@store/companies/models/company.model';
+import { MockSpecialization } from '@companies/pages/company/company.component';
+import { StudentModel } from '@store/students/models/student.model';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { loadStudents } from '@store/students/students.actions';
+import {
+  changeCompany,
+  createCompany,
+  loadCompanies,
+} from '@store/companies/companies.actions';
 
 @Component({
   selector: 'app-create-company',
@@ -34,10 +38,10 @@ export class CreateCompanyComponent implements OnInit {
   form = new FormGroup({
     userName: new FormControl('', Validators.required),
     info: new FormControl(''),
-    email: new FormControl('', [Validators.required, Validators.email])
+    email: new FormControl('', [Validators.required, Validators.email]),
   });
 
-  constructor(private store: Store) { }
+  constructor(private store: Store) {}
 
   ngOnInit() {
     this.store.dispatch(loadStudents());
@@ -50,8 +54,8 @@ export class CreateCompanyComponent implements OnInit {
       technologies: [],
       files: [],
       positions: [],
-      ...this.form.value
+      ...this.form.value,
     };
-    this.store.dispatch(createCompany({company: newCompany}));
+    this.store.dispatch(createCompany({ company: newCompany }));
   }
 }

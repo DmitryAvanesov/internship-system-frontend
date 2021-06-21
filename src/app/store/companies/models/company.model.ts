@@ -4,7 +4,7 @@ export interface CompanyModel {
   info?: string;
   email?: string;
   specializations?: string[];
-  technologies?: string[],
-  files?: string[],
-  positions?: string[]
+  technologies?: string[];
+  files?: string[];
+  positions?: string[];
 }

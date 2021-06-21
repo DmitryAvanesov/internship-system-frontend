@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Store} from '@ngrx/store';
-import {selectAllSpecializations, selectAllTechnologies} from '@store/dictionaries/dictionaries.selectors';
-import {ActivatedRoute, Router} from '@angular/router';
+import { Store } from '@ngrx/store';
+import {
+  selectAllSpecializations,
+  selectAllTechnologies,
+} from '@store/dictionaries/dictionaries.selectors';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-student-account',

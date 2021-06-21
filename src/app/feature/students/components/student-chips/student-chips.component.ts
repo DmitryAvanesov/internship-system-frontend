@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {applicationColors} from '@core/consts/applicationColors';
+import { applicationColors } from '@core/consts/applicationColors';
 
 @Component({
   selector: 'app-student-chips',

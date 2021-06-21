@@ -1,15 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import {loadStudents} from '@store/students/students.actions';
-import {changeCompany, loadCompanies} from '@store/companies/companies.actions';
-import {selectAllCompanies, selectCompany} from '@store/companies/companies.selectors';
-import {Store} from '@ngrx/store';
-import {Observable} from 'rxjs';
-import {CompanyModel} from '@store/companies/models/company.model';
-import {selectRouteParam} from '@store/router/router.selectors';
-import {StudentModel} from '@store/students/models/student.model';
-import {MockSpecialization} from '@companies/pages/company/company.component';
-import {filter} from 'rxjs/operators';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import { loadStudents } from '@store/students/students.actions';
+import {
+  changeCompany,
+  loadCompanies,
+} from '@store/companies/companies.actions';
+import {
+  selectAllCompanies,
+  selectCompany,
+} from '@store/companies/companies.selectors';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { CompanyModel } from '@store/companies/models/company.model';
+import { selectRouteParam } from '@store/router/router.selectors';
+import { StudentModel } from '@store/students/models/student.model';
+import { MockSpecialization } from '@companies/pages/company/company.component';
+import { filter } from 'rxjs/operators';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-company',
@@ -46,7 +52,7 @@ export class EditCompanyComponent implements OnInit {
     email: new FormControl('', [Validators.required, Validators.email]),
   });
 
-  constructor(private store: Store) { }
+  constructor(private store: Store) {}
 
   ngOnInit() {
     this.store.dispatch(loadStudents());
@@ -56,18 +62,16 @@ export class EditCompanyComponent implements OnInit {
       this.company$ = this.store.select(selectCompany, { id });
     });
 
-    this.company$
-      .pipe(filter((el) => !!el))
-      .subscribe((company) => {
-        this.company = company;
-        this.form.controls.userName.setValue(company.userName);
-        this.form.controls.info.setValue(company?.info);
-        this.form.controls.email.setValue(company?.email);
-      });
+    this.company$.pipe(filter((el) => !!el)).subscribe((company) => {
+      this.company = company;
+      this.form.controls.userName.setValue(company.userName);
+      this.form.controls.info.setValue(company?.info);
+      this.form.controls.email.setValue(company?.email);
+    });
   }
 
   save() {
-    const newCompany: CompanyModel = {...this.company, ...this.form.value};
-    this.store.dispatch(changeCompany({company: newCompany}));
+    const newCompany: CompanyModel = { ...this.company, ...this.form.value };
+    this.store.dispatch(changeCompany({ company: newCompany }));
   }
 }
