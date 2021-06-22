@@ -34,6 +34,7 @@ export class CompanyComponent implements OnInit {
     userName: 'Ivan',
     score: Math.round(Math.random() * 500) / 100,
     interviews: [],
+    subjectAssessments: [],
   };
   routeId$ = this.store.select(selectRouteParam('id'));
   company$: Observable<CompanyModel>;
@@ -62,18 +63,21 @@ export class CompanyComponent implements OnInit {
       userName: 'Ivan',
       score: Math.round(Math.random() * 500) / 100,
       interviews: [],
+      subjectAssessments: [],
     },
     {
       id: '2',
       userName: 'Ivan',
       score: Math.round(Math.random() * 500) / 100,
       interviews: [],
+      subjectAssessments: [],
     },
     {
       id: '3',
       userName: 'Ivan',
       score: Math.round(Math.random() * 500) / 100,
       interviews: [],
+      subjectAssessments: [],
     },
   ];
 
