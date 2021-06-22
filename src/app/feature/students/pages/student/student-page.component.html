@@ -15,7 +15,7 @@
             <div class="info">
               <h1 class="user-name">{{ (student$ | async).userName }}</h1>
               <a
-                class="portfolio"
+                class="sub-title"
                 *ngIf="(student$ | async)?.info"
                 [href]="(student$ | async)?.info"
                 target="_blank"

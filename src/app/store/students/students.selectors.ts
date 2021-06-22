@@ -7,8 +7,10 @@ const selectStudents = createFeatureSelector<AppState, StudentsState>(
   'students'
 );
 
-export const { selectAll: selectAllStudents } =
-  studentsAdapter.getSelectors(selectStudents);
+export const {
+  selectAll: selectAllStudents,
+  selectEntities: selectStudentEntities,
+} = studentsAdapter.getSelectors(selectStudents);
 
 export const selectStudentsLoading = createSelector(
   selectStudents,

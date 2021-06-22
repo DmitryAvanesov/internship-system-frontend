@@ -1,5 +1,5 @@
 import { RouterModule, Routes } from '@angular/router';
-import { CompanyAccountComponent } from '@shared/components/company-account/company-account.component';
+import { CompanyAccountComponent } from '@company-account/company-account/company-account.component';
 
 const routes: Routes = [
   {
@@ -7,5 +7,4 @@ const routes: Routes = [
     component: CompanyAccountComponent,
   },
 ];
-
 export const CompanyAccountRouting = RouterModule.forChild(routes);

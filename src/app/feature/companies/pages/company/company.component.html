@@ -3,6 +3,9 @@
     <ion-row class="company__header">
       <div class="company__title-block">
         <h1 class="company__title">{{ (company$ | async)?.userName }}</h1>
+        <a class="sub-title" target="_blank">
+          {{ (company$ | async)?.email }}
+        </a>
         <ion-button
           *ngIf="(userRoles$ | async) && (userRoles$ | async)[0] === adminRole"
           [routerLink]="['/admin', 'company', (company$ | async)?.id]"

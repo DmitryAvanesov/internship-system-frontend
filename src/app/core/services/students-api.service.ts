@@ -18,7 +18,8 @@ export class StudentsApiService {
   changeStudent(changedStudent: StudentModel): Observable<StudentModel> {
     return this.http.put<StudentModel>(
       `${environment.api}/Students`,
-      changedStudent
+      { ...changedStudent, password: 'aA12345678*' },
+      { headers: { Authorization: 'Bearer ' + localStorage.getItem('token') } }
     );
   }
 }
