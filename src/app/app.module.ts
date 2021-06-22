@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { InterviewsEffects } from '@store/interviews/interviews.effects';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PositionsEffects } from '@store/positions/positions.effects';
+import { AuthEffects } from '@store/auth/auth.effects';
 import { SubjectsEffects } from '@store/subjects/subjects.effects';
 
 @NgModule({
@@ -31,6 +32,7 @@ import { SubjectsEffects } from '@store/subjects/subjects.effects';
       DictionariesEffects,
       InterviewsEffects,
       PositionsEffects,
+      AuthEffects,
       SubjectsEffects,
     ]),
     StoreModule.forRoot(appReducers),

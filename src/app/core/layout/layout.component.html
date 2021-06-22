@@ -1,5 +1,9 @@
 <ion-app>
-  <ion-split-pane when="sm" content-id="main-content">
+  <ion-split-pane
+    *ngIf="showToolbar; else authPage"
+    when="sm"
+    content-id="main-content"
+  >
     <ion-menu content-id="main-content">
       <ion-header>
         <!-- <ion-toolbar>
@@ -54,6 +58,15 @@
               class="toolbar__user-icon"
               name="person-circle-outline"
             ></ion-icon>
+            <ion-icon
+              *ngIf="isUserLoggedIn$ | async; else signIn"
+              (click)="logout()"
+              class="toolbar__user-icon"
+              name="exit-outline"
+            ></ion-icon>
+            <ng-template #signIn>
+              <ion-button [routerLink]="['/auth/sign-in']"> Войти </ion-button>
+            </ng-template>
           </div>
         </ion-toolbar>
       </ion-header>
@@ -62,4 +75,8 @@
       </ion-content>
     </div>
   </ion-split-pane>
+
+  <ng-template #authPage>
+    <ion-router-outlet></ion-router-outlet>
+  </ng-template>
 </ion-app>

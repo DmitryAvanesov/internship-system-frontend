@@ -41,4 +41,11 @@ export const appRoutes: { [key: string]: Route } = {
       hidden: true,
     },
   },
+  auth: {
+    path: 'auth',
+    data: {
+      title: 'Авторизация',
+      hidden: true,
+    },
+  },
 };
