@@ -18,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PositionsEffects } from '@store/positions/positions.effects';
 import { AuthEffects } from '@store/auth/auth.effects';
 import { SubjectsEffects } from '@store/subjects/subjects.effects';
+import { StudentsEffects } from '@store/students/students.effects';
 
 @NgModule({
   declarations: [AppComponent, LayoutComponent],
@@ -34,6 +35,7 @@ import { SubjectsEffects } from '@store/subjects/subjects.effects';
       PositionsEffects,
       AuthEffects,
       SubjectsEffects,
+      StudentsEffects,
     ]),
     StoreModule.forRoot(appReducers),
     StoreRouterConnectingModule.forRoot(),

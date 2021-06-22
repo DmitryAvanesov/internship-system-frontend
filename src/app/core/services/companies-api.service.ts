@@ -15,12 +15,17 @@ export class CompaniesApiService {
   }
 
   changeCompany(company: CompanyModel): Observable<CompanyModel> {
-    return this.http.put<CompanyModel>(`${environment.api}/Companies`, company);
+    return this.http.put<CompanyModel>(
+      `${environment.api}/Companies`,
+      { ...company, password: 'aA12345678*' },
+      { headers: { Authorization: 'Bearer ' + localStorage.getItem('token') } }
+    );
   }
   createCompany(company: CompanyModel): Observable<CompanyModel> {
     return this.http.post<CompanyModel>(
       `${environment.api}/Companies`,
-      company
+      company,
+      { headers: { Authorization: 'Bearer ' + localStorage.getItem('token') } }
     );
   }
 }

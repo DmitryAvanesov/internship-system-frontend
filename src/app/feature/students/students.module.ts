@@ -26,11 +26,6 @@ import { StudentPriorityListItemComponent } from '@students/components/student-p
     StudentPriorityListComponent,
     StudentPriorityListItemComponent,
   ],
-  imports: [
-    CommonModule,
-    StudentsRouting,
-    EffectsModule.forFeature([StudentsEffects]),
-    SharedModule,
-  ],
+  imports: [CommonModule, StudentsRouting, SharedModule],
 })
 export class StudentsModule {}

@@ -7,4 +7,7 @@ export interface StudentModel {
   specializations?: string[];
   technologies?: string[];
   subjectAssessments: string[];
+  firstName?: string;
+  lastName?: string;
+  middleName?: string;
 }
