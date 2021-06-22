@@ -66,7 +66,7 @@
       <ion-item *ngFor="let interview of interviews">
         <ion-label>
           <ion-text class="company-account__student-name">
-            {{ interviewStudents[interview.id]?.userName }}
+            {{ interviewStudents[interview.id] | fullName }}
           </ion-text>
           <ion-text color="medium">
             {{ interviewPositions[interview.id]?.name }}
