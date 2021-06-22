@@ -13,7 +13,7 @@
               />
             </ion-avatar>
             <div class="info">
-              <h1 class="user-name">{{ (student$ | async).userName }}</h1>
+              <h1 class="user-name">{{ student$ | async | fullName }}</h1>
               <a
                 class="sub-title"
                 *ngIf="(student$ | async)?.info"
