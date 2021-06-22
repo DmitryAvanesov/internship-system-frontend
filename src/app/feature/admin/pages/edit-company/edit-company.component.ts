@@ -50,18 +50,21 @@ export class EditCompanyComponent implements OnInit {
       userName: 'Ivan',
       score: Math.round(Math.random() * 500) / 100,
       interviews: [],
+      subjectAssessments: [],
     },
     {
       id: '2',
       userName: 'Ivan',
       score: Math.round(Math.random() * 500) / 100,
       interviews: [],
+      subjectAssessments: [],
     },
     {
       id: '3',
       userName: 'Ivan',
       score: Math.round(Math.random() * 500) / 100,
       interviews: [],
+      subjectAssessments: [],
     },
   ];
 

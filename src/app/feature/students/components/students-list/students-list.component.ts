@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { StudentModel } from '@store/students/models/student.model';
 
 @Component({
