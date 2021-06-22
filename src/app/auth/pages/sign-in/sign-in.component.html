@@ -1,0 +1,18 @@
+<div class="auth">
+  <div *ngIf="true; else loader" class="auth__window">
+    <h1>Авторизация</h1>
+    <div [formGroup]="form" class="auth__form">
+      <ion-input placeholder="Login" formControlName="name"></ion-input>
+      <ion-input
+        placeholder="Пароль"
+        formControlName="password"
+        type="password"
+      ></ion-input>
+    </div>
+    <ion-button [disabled]="form.invalid" (click)="signIn()">Войти</ion-button>
+    <ion-button>Войти через ТГУ.Аккаунт</ion-button>
+  </div>
+  <ng-template #loader>
+    <app-loader></app-loader>
+  </ng-template>
+</div>
