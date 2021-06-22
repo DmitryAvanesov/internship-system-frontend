@@ -13,7 +13,7 @@ import { loadStudents } from '@store/students/students.actions';
 import { CompanyModel } from '@store/companies/models/company.model';
 import { selectRouteParam } from '@store/router/router.selectors';
 import { selectCompany } from '@store/companies/companies.selectors';
-import { selectUserRoles } from '@store/auth/auth.selectors';
+import { selectUserRoles, selectUserId } from '@store/auth/auth.selectors';
 import { RolesEnum } from '@core/enums/roles.enum';
 
 export interface MockSpecialization {
@@ -28,15 +28,8 @@ export interface MockSpecialization {
   styleUrls: ['./company.component.scss'],
 })
 export class CompanyComponent implements OnInit {
-  // the current user goes here
-  user: StudentModel = {
-    id: 'b0fe2425-0750-4dfe-aa54-f5302937438b',
-    userName: 'Ivan',
-    score: Math.round(Math.random() * 500) / 100,
-    interviews: [],
-    subjectAssessments: [],
-  };
   routeId$ = this.store.select(selectRouteParam('id'));
+  userId$ = this.store.select(selectUserId);
   company$: Observable<CompanyModel>;
   positions: PositionModel[];
   positionId: string = null;
@@ -44,6 +37,7 @@ export class CompanyComponent implements OnInit {
 
   userRoles$ = this.store.select(selectUserRoles);
   adminRole = RolesEnum.Admin;
+  userId: string;
 
   specializations: MockSpecialization[] = [
     {
@@ -87,7 +81,7 @@ export class CompanyComponent implements OnInit {
     private interviewsApiService: InterviewsApiService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.store.dispatch(loadCompanies());
     this.store.dispatch(loadStudents());
 
@@ -106,9 +100,13 @@ export class CompanyComponent implements OnInit {
           });
         }
       });
+
+    this.userId$.subscribe((userId) => {
+      this.userId = userId;
+    });
   }
 
-  toggleSpecialization(id: string) {
+  toggleSpecialization(id: string): void {
     const specializationIndex = this.specializations.findIndex(
       (el) => el.id === id
     );
@@ -122,21 +120,21 @@ export class CompanyComponent implements OnInit {
     }
   }
 
-  handlePositionChange(event) {
+  handlePositionChange(event: any): void {
     this.positionId = event.detail.value;
 
     this.interview$ = this.store.select(selectInterviewByStudentAndPosition, {
-      studentId: this.user.id,
+      studentId: this.userId,
       positionId: this.positionId,
     });
   }
 
-  handleInterviewButtonClick() {
+  handleInterviewButtonClick(): void {
     this.store.dispatch(
       interviewAdded({
         interview: {
           state: 0,
-          studentId: this.user.id,
+          studentId: this.userId,
           positionId: this.positionId,
         },
       })
