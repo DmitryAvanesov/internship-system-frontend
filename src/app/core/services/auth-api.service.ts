@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../../../../Users/mectu/Downloads/internship-system-frontend-temp2/internship-system-frontend-temp2/src/environments/environment';
 import { AuthResponse } from '@core/interfaces/auth-response.interface';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
